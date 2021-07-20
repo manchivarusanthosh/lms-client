@@ -16,9 +16,9 @@ import Login from "./components/Login/Login.jsx";
 
 function App () {
   const [data,setData] = useState({})
-  const [loading,setLoading] = useState("false")
+  const [loading,setLoading] = useState(false)
   const [pass,setPass] = useState("true")
-  const [isLogin,setIsLogin] = useState("false")
+  const [isLogin,setIsLogin] = useState(false)
 
   useEffect(() => {
     setData({
@@ -29,6 +29,18 @@ function App () {
     setIsLogin(localStorage.getItem("isLogin") === "true")
   }, [])
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log("entered the funct")
+    setPass(true);
+    setLoading(true);
+    // this.login(event.target[0].value, event.target[1].value);
+    console.log(event.target[0].value)
+    console.log(event.target[0].value)
+    console.log(pass)
+    console.log(loading)
+    event.target.reset();
+  };
 
   // console.log(isLogin)
   
@@ -43,7 +55,7 @@ function App () {
                       <Login
                         loading={loading}
                         pass={pass}
-                        // onSubmit={handleSubmit}
+                        onSubmit={handleSubmit}
                       />
                     )
             }

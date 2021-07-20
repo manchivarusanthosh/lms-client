@@ -26,7 +26,7 @@ function Login(props) {
             </div>
 
             <div id="outer-login-form-div">
-              <form action="" method="" >
+              <form action="" method="" onSubmit={props.onSubmit} >
                 
                   <input className="login-form-input"
                     type="text"
