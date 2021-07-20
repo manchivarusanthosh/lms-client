@@ -4,7 +4,7 @@ import "./App.css";
 // import axios from "axios";
 // import jwt from "jsonwebtoken";
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Route,
   Link,
   Redirect,
@@ -35,32 +35,19 @@ function App () {
   return (
     <Router>
       <Switch>
-        {/* <Route
+        <Route
               exact
               path="/login"
-              render={(props) =>
-                this.state.data["Account"] === 1 ? (
-                  // <Dashboard />
-                  <Redirect to="/admin" />
-                ) : // <Login OnLogin={this.handleLogin}/>
-
-                  this.state.data["Account"] === 2 ? (
-                    // <Dashboard />
-                    <Redirect to="/hr" />
-                  ) : //
-                    this.state.data["Account"] == 3 ? (
-                      // <Dashboard />
-                      <Redirect to="/employee" />
-                    ) : (
-                        <Login
-                          onSubmit={this.handleSubmit}
-                          loading={this.state.loading}
-                          pass={this.state.pass}
-                        />
-                      )
-              }
-            /> */}
-            <Route exact path="/login" data={()=>isLogin}  component={Login}/>
+              render={props => data["Account"] == 1 ? (<Redirect to="/admin" />) : data["Account"] == 2 ? (<Redirect to="/hr"/>) : //
+                  data["Account"] == 3 ? (<Redirect to="/employee" />) : (
+                      <Login
+                        loading={loading}
+                        pass={pass}
+                      />
+                    )
+            }
+          />
+            
         
       </Switch>
     </Router>

@@ -10,6 +10,7 @@ const override = css`
 
 function Login(props) {
     const {data} = props 
+    
     console.log(data)
     return (
         <div>
@@ -25,37 +26,30 @@ function Login(props) {
             </div>
 
             <div id="outer-login-form-div">
-              <form action="" method="" onSubmit={this.props.onSubmit}>
-                {/* <div className="form-group"> */}
+              <form action="" method="" >
+                
                   <input className="login-form-input"
                     type="text"
-                    // className="form-control"
                     placeholder="Email"
                     required="required"
                     name="Username"
                   />
-                {/* </div> */}
-                {/* <div className="form-group"> */}
+                
                   <input className="login-form-input"
                     type="password"
-                    // className="form-control"
                     placeholder="Password"
                     required="required"
                   />
-                {/* </div> */}
-                {/* <div className="form-group"> */}
                   <input className="login-form-input"
                     type="submit"
-                    // className="btn btn-primary btn-block btn-lg btn-mystyle"
                     value="Sign in"
                     id="submitBtn"
                   />
-                {/* </div> */}
-                {!this.props.pass ? (
+                {/* {!this.props.pass ? (
                   <p className="alert">Invalid UserName or Password</p>
                 ) : (
                   ""
-                )}
+                )} */}
               </form>
             </div>
 
@@ -65,7 +59,7 @@ function Login(props) {
                 sizeUnit={"px"}
                 size={150}
                 color={"#123abc"}
-                loading={this.props.loading}
+               
               />
             </div>
           </div>
