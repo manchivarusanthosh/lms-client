@@ -38,11 +38,12 @@ function App () {
         <Route
               exact
               path="/login"
-              render={props => data["Account"] == 1 ? (<Redirect to="/admin" />) : data["Account"] == 2 ? (<Redirect to="/hr"/>) : //
+              render={() => data["Account"] == 1 ? (<Redirect to="/admin" />) : data["Account"] == 2 ? (<Redirect to="/hr"/>) : //
                   data["Account"] == 3 ? (<Redirect to="/employee" />) : (
                       <Login
                         loading={loading}
                         pass={pass}
+                        // onSubmit={handleSubmit}
                       />
                     )
             }

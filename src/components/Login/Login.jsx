@@ -9,9 +9,9 @@ const override = css`
 `;
 
 function Login(props) {
-    const {data} = props 
+    const {loading,pass} = props 
     
-    console.log(data)
+    console.log(loading)
     return (
         <div>
         <div className="container">
@@ -59,7 +59,7 @@ function Login(props) {
                 sizeUnit={"px"}
                 size={150}
                 color={"#123abc"}
-               
+                loading={loading}
               />
             </div>
           </div>
