@@ -31,17 +31,25 @@ function App () {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log("entered the funct")
+    // console.log("entered the funct")
     setPass(true);
     setLoading(true);
     // this.login(event.target[0].value, event.target[1].value);
-    console.log(event.target[0].value)
-    console.log(event.target[0].value)
-    console.log(pass)
-    console.log(loading)
+    let userMail = event.target[0].value
+    let userPass = event.target[1].value
+    // console.log(userMail)
+    // console.log(userPass)
+    login(userMail,userPass)
     event.target.reset();
   };
 
+  const login =(userMail,userPass) => {
+    let bodyLogin = {
+      userMail : userMail,
+      userPass : userPass
+    }
+    console.log(bodyLogin)
+  }
   // console.log(isLogin)
   
   return (
