@@ -1,25 +1,72 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState,useEffect } from "react";
+import { Switch } from "react-router-dom";
+import "./App.css";
+// import axios from "axios";
+// import jwt from "jsonwebtoken";
+import {
+  HashRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  DefaultRoute
+} from "react-router-dom";
+// import history from "./history.js";
 
-function App() {
+import Login from "./components/Login/Login.jsx";
+
+function App () {
+  const [data,setData] = useState({})
+  const [loading,setLoading] = useState("false")
+  const [pass,setPass] = useState("true")
+  const [isLogin,setIsLogin] = useState("false")
+
+  useEffect(() => {
+    setData({
+      id: localStorage.getItem("_id") || "",
+      Account: localStorage.getItem("Account") || "",
+      Name: localStorage.getItem("Name") || ""
+    })
+    setIsLogin(localStorage.getItem("isLogin") === "true")
+  }, [])
+
+
+  // console.log(isLogin)
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Switch>
+        {/* <Route
+              exact
+              path="/login"
+              render={(props) =>
+                this.state.data["Account"] === 1 ? (
+                  // <Dashboard />
+                  <Redirect to="/admin" />
+                ) : // <Login OnLogin={this.handleLogin}/>
+
+                  this.state.data["Account"] === 2 ? (
+                    // <Dashboard />
+                    <Redirect to="/hr" />
+                  ) : //
+                    this.state.data["Account"] == 3 ? (
+                      // <Dashboard />
+                      <Redirect to="/employee" />
+                    ) : (
+                        <Login
+                          onSubmit={this.handleSubmit}
+                          loading={this.state.loading}
+                          pass={this.state.pass}
+                        />
+                      )
+              }
+            /> */}
+            <Route exact path="/login" data={()=>isLogin}  component={Login}/>
+        
+      </Switch>
+    </Router>
+  )
+  
+
 }
 
 export default App;

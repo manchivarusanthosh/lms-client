@@ -3,13 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
+    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "ag-grid-community": "^21.0.1",
+    "ag-grid-react": "^21.0.1",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.3.1",
+    "i": "^0.3.6",
+    "jsonwebtoken": "^8.5.1",
+    "npm": "^6.9.0",
+    "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.9",
+    "react-dom": "^16.8.6",
+    "react-dom-factories": "^1.0.2",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1",
+    "react-spinners": "^0.5.4",
+    "react-switch": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -18,10 +29,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
