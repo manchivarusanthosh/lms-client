@@ -16,9 +16,9 @@ import Login from "./components/Login/Login.jsx";
 
 function App () {
   const [data,setData] = useState({})
-  const [loading,setLoading] = useState("false")
+  const [loading,setLoading] = useState(false)
   const [pass,setPass] = useState("true")
-  const [isLogin,setIsLogin] = useState("false")
+  const [isLogin,setIsLogin] = useState(false)
 
   useEffect(() => {
     setData({

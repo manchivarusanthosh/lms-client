@@ -2,6 +2,8 @@ import React from 'react'
 import "./Login.css";
 import { ScaleLoader } from "react-spinners";
 import { css } from "@emotion/core";
+import pcs_logo from "../Images/pcs_logo.png"
+import home_page from "../Images/home_page.svg"
 const override = css`
   display: block;
   margin: 0 auto;
@@ -9,19 +11,18 @@ const override = css`
 `;
 
 function Login(props) {
-    const {loading,pass} = props 
+    // const {loading,pass} = props 
     
-    console.log(loading)
+    // console.log(loading)
     return (
         <div>
-        <div className="container">
+        <div className="container" styles={{ backgroundImage:`url(${home_page})` }}>
+          {/* <img src={home_page} alt="bg"/> */}
           <div id="main-outer-div">
-            <div id="logo-div">
-               
-              <img id="logo-img" src="" alt="LOGO" />
+            <div id="logo-div">   
+              <img id="logo-img" src={pcs_logo} alt="LOGO" />
             </div>
             <div id="title-div">
-               
               <h4 className="title">Sign in</h4>
             </div>
 
@@ -59,7 +60,7 @@ function Login(props) {
                 sizeUnit={"px"}
                 size={150}
                 color={"#123abc"}
-                loading={loading}
+                loading={props.loading}
               />
             </div>
           </div>
