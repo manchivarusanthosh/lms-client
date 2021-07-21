@@ -227,7 +227,8 @@ function App () {
                   <Redirect to="/login" />
                 )
             }
-          />      
+          />     
+          <Redirect to="/login" /> 
       </Switch>
     </Router>
   )
