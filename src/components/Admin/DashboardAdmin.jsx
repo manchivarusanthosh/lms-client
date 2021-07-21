@@ -31,20 +31,20 @@ function DashboardAdmin(props) {
 //   };
     const [redirect, setRedirect] = useState(true)
     const [checked, setChecked] = useState(true)
-    console.log("app start",typeof(checked))
+    console.log("starting value",checked)
     
     const handleChange=(checked)=> {
-    console.log("switch");
-    console.log("Start:",checked)
-    if(checked==true){
-        console.log("if statement") 
-      document.getElementById("sidebar").setAttribute("class", "display-none");
-    }
-    else{
-        console.log("in else:",checked)
-        document.getElementById("sidebar").setAttribute("class", "display-block");
-    }   
-    console.log("after else:",checked)
+                if(checked)
+                {
+                    console.log("if statement",checked) 
+                    document.getElementById("sidebar").setAttribute("class", "display-block");
+                }
+                else
+                {
+                    console.log("in else:",checked)
+                    document.getElementById("sidebar").setAttribute("class", "display-none");
+                }   
+                console.log("after else:",checked)
     setChecked(checked)
     console.log("End:",checked)
   }
@@ -107,7 +107,7 @@ function DashboardAdmin(props) {
            
             <div id="main-area">
               <div id="sidebar-top-content" />
-              
+                <h1> Content to be added</h1>
             </div>
           </div> 
         </div> 

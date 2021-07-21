@@ -34,7 +34,7 @@ function NavBar(props) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
         
           <Navbar.Collapse id="logout-navbar-nav">
-            <Nav className="display-name-user-align ml-auto">             
+            <Nav className="display-name-user-align navbar-nav ml-auto">             
               <a  onClick={props.onClick} className="navbar-right-content">
                         {props.loginInfo["Name"]}
                 </a>
