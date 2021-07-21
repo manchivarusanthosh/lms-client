@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import "./NavBar.css";
-import { Navbar, Nav,NavDropdown } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import pcs_logo from "./Images/pcs_logo.png"
 import Switch from "react-switch";
-import { slide as Menu } from 'react-burger-menu'
+
 
 function NavBar(props) {
 
@@ -36,10 +36,10 @@ function NavBar(props) {
         
           <Navbar.Collapse id="logout-navbar-nav">
             <Nav className="collapse-navbar">             
-              <a  onClick={props.onClick} className="navbar-right-content">
+              <a href="#" onClick={props.onClick} className="navbar-right-content">
                         {props.loginInfo["Name"]}
                 </a>
-              <a onClick={props.onLogout} style={{"cursor":"pointer"}}className="navbar-right-content">Log Out</a>
+              <a hrefonClick={props.onLogout} style={{"cursor":"pointer"}}className="navbar-right-content">Log Out</a>
             </Nav>
           </Navbar.Collapse>
         

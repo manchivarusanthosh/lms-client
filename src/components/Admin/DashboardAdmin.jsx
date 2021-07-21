@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./DashboardAdmin.css";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
-import { Switch } from "react-router";
-import { Redirect } from "react-router-dom";
+// import { Switch } from "react-router";
+// import { Redirect } from "react-router-dom";
 
 
 // import Role from "../Role.jsx";
@@ -36,13 +36,13 @@ function DashboardAdmin(props) {
     const handleChange=(checked)=> {
     console.log("switch");
     console.log("Start:",checked)
-    if(checked==true){
+    if(checked===true){
         console.log("if statement") 
-      document.getElementById("sidebar").setAttribute("class", "display-none");
+      document.getElementById("sidebar").setAttribute("class", "display-block");
     }
     else{
         console.log("in else:",checked)
-        document.getElementById("sidebar").setAttribute("class", "display-block");
+        document.getElementById("sidebar").setAttribute("class", "display-none");
     }   
     console.log("after else:",checked)
     setChecked(checked)

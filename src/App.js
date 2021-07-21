@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { Switch, useHistory } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import "./App.css";
 
 // import axios from "axios";
@@ -8,8 +8,7 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  Redirect,
-  DefaultRoute
+  Redirect
 } from "react-router-dom";
 import DashboardAdmin from "./components/Admin/DashboardAdmin";
 
@@ -77,20 +76,20 @@ function App () {
       localStorage.setItem("token", res.data);
 
       if (
-        (res == undefined ||
-          res == null ||
-          decodedData.Account == undefined ||
-          decodedData.Account == null) &&
+        (res === undefined ||
+          res === null ||
+          decodedData.Account === undefined ||
+          decodedData.Account === null) &&
         !(
-          decodedData.Account == 1 ||
-          decodedData.Account == 2 ||
-          decodedData.Account == 3
+          decodedData.Account === 1 ||
+          decodedData.Account === 2 ||
+          decodedData.Account === 3
         )
       ) {
         setPass(false)
         setLoading(false)
       } else {
-        if (decodedData.Account == 1) {
+        if (decodedData.Account === 1) {
           
           setPass(true)
           setLoading(false)
@@ -113,7 +112,7 @@ function App () {
           setIsLogin(localStorage.getItem("isLogin") === "true")
           history.push("/admin/role");   
         }
-        if (decodedData.Account == 2) {
+        if (decodedData.Account === 2) {
           
           setPass(true)
           setLoading(false)
@@ -136,7 +135,7 @@ function App () {
           setIsLogin(localStorage.getItem("isLogin") === "true")
           history.push("/hr/employee");
         }
-        if (decodedData.Account == 3) {
+        if (decodedData.Account === 3) {
           setPass(true)
           setLoading(false)
           setIsLogin(true)
