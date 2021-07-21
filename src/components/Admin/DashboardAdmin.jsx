@@ -34,19 +34,6 @@ function DashboardAdmin(props) {
     console.log("starting value",checked)
     
     const handleChange=(checked)=> {
-<<<<<<< HEAD
-                if(checked)
-                {
-                    console.log("if statement",checked) 
-                    document.getElementById("sidebar").setAttribute("class", "display-block");
-                }
-                else
-                {
-                    console.log("in else:",checked)
-                    document.getElementById("sidebar").setAttribute("class", "display-none");
-                }   
-                console.log("after else:",checked)
-=======
     console.log("switch");
     console.log("Start:",checked)
     if(checked===true){
@@ -58,7 +45,6 @@ function DashboardAdmin(props) {
         document.getElementById("sidebar").setAttribute("class", "display-none");
     }   
     console.log("after else:",checked)
->>>>>>> 260c5b7d0f5cdadd2530fc924603d36d5af7422b
     setChecked(checked)
     console.log("End:",checked)
   }

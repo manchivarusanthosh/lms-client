@@ -31,50 +31,6 @@ justify-content: space-between;
   /* display: flex;
   justify-content: flex-end; */
   
-<<<<<<< HEAD
-  #nav-bar-logo {
-    height: 40px;
-    margin-left: 10px;
-    margin-top: 5px;
-    padding: 0px
-  }
-  #logo-anchor{
-    padding: 0px;
-    margin: 0px;
-    float: left;
-  }
-  #logout-navbar-nav{
-    background-color: red;
-    width: 10%;
-    background-color: white;
-    margin: 10px;
-    
-  
-  }
-  #toggle-switch{
-    margin-left: 20px;
-    height: 50px;
-    margin-top: 20px;
-    float: none;
-    /* padding-top: 20px; */
-    display: inline-block;
-    padding-top: 15px;
-  }
-  .navbar-right-content{
-    text-decoration: none;
-    color: black;
-    margin-right:30px; 
-    margin: 10px; 
-  }
-  .navBar-username {
-    float: right;
-    margin-right: 30px;
-  }
-  
-  .display-name-user-align{
-
-  }
-=======
 
 }
 #toggle-switch{
@@ -100,4 +56,3 @@ justify-content: space-between;
 .collapse-navbar{
   margin-left: auto;
 }
->>>>>>> 260c5b7d0f5cdadd2530fc924603d36d5af7422b

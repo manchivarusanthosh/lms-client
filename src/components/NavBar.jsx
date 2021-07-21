@@ -35,13 +35,8 @@ function NavBar(props) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
         
           <Navbar.Collapse id="logout-navbar-nav">
-<<<<<<< HEAD
-            <Nav className="display-name-user-align navbar-nav ml-auto">             
-              <a  onClick={props.onClick} className="navbar-right-content">
-=======
             <Nav className="collapse-navbar">             
               <a href="#" onClick={props.onClick} className="navbar-right-content">
->>>>>>> 260c5b7d0f5cdadd2530fc924603d36d5af7422b
                         {props.loginInfo["Name"]}
                 </a>
               <a hrefonClick={props.onLogout} style={{"cursor":"pointer"}}className="navbar-right-content">Log Out</a>
