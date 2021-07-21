@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import "./NavBar.css";
 import { Navbar, Nav } from "react-bootstrap";
 import pcs_logo from "./Images/pcs_logo.png"
 import Switch from "react-switch";
+
 
 function NavBar(props) {
 
@@ -34,17 +35,46 @@ function NavBar(props) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
         
           <Navbar.Collapse id="logout-navbar-nav">
+<<<<<<< HEAD
             <Nav className="display-name-user-align navbar-nav ml-auto">             
               <a  onClick={props.onClick} className="navbar-right-content">
+=======
+            <Nav className="collapse-navbar">             
+              <a href="#" onClick={props.onClick} className="navbar-right-content">
+>>>>>>> 260c5b7d0f5cdadd2530fc924603d36d5af7422b
                         {props.loginInfo["Name"]}
                 </a>
-              <a onClick={props.onLogout} style={{"cursor":"pointer"}}className="navbar-right-content">Log Out</a>
+              <a hrefonClick={props.onLogout} style={{"cursor":"pointer"}}className="navbar-right-content">Log Out</a>
             </Nav>
           </Navbar.Collapse>
         
       </Navbar>
 
-
+          {/* <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Container>
+            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto">
+                <Nav.Link href="#features">Features</Nav.Link>
+                <Nav.Link href="#pricing">Pricing</Nav.Link>
+                <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                  <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+              <Nav>
+                <Nav.Link href="#deets">More deets</Nav.Link>
+                <Nav.Link eventKey={2} href="#memes">
+                  Dank memes
+                </Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+            </Container>
+          </Navbar> */}
       </div>
     );
   
