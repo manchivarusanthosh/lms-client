@@ -29,6 +29,7 @@ function DashboardAdmin(props) {
 //     redirect: true,
 //     checked: true 
 //   };
+  
     const [redirect, setRedirect] = useState(true)
     const [checked, setChecked] = useState(true)
     console.log("app start",typeof(checked))
@@ -54,7 +55,7 @@ function DashboardAdmin(props) {
       <Router>
         <div id="outer-main-div">
           <div id="outer-nav">
-            <NavBar loginInfo={props.data} checked={checked} handleChange={handleChange} onLogout={props.onLogout}/>
+            <NavBar loginInfo={props.data} checked={checked} handleChange={handleChange} onlogout={props.onlogout}/>
           </div>
 
          <div id="main-non-nav">

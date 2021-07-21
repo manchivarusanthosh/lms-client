@@ -173,8 +173,8 @@ function App () {
         <Route
               exact
               path="/login"
-              render={() => data["Account"] == 1 ? (<Redirect to="/admin" />) : data["Account"] == 2 ? (<Redirect to="/hr"/>) : //
-                  data["Account"] == 3 ? (<Redirect to="/employee" />) : (
+              render={() => data["Account"] === 1 ? (<Redirect to="/admin" />) : data["Account"] === 2 ? (<Redirect to="/hr"/>) : //
+                  data["Account"] === 3 ? (<Redirect to="/employee" />) : (
                       <Login
                         loading={loading}
                         pass={pass}
@@ -187,7 +187,7 @@ function App () {
             // exact
             path="/admin"
             render={() =>
-              data["Account"] == 1 ? (
+              data["Account"] === 1 ? (
                 <DashboardAdmin data={data} onlogout={handleLogout} />
 
               ) : (

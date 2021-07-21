@@ -6,7 +6,7 @@ import Switch from "react-switch";
 
 
 function NavBar(props) {
-
+    // console.log(props.onlogout())
     return (
       <div>
         <Navbar bg="light" expand="lg" className="nav-bar" fixed="top"  id="main-nav">
@@ -36,10 +36,10 @@ function NavBar(props) {
         
           <Navbar.Collapse id="logout-navbar-nav">
             <Nav className="collapse-navbar">             
-              <a href="#" onClick={props.onClick} className="navbar-right-content">
+              <p onClick={props.onClick} className="navbar-right-content">
                         {props.loginInfo["Name"]}
-                </a>
-              <a hrefonClick={props.onLogout} style={{"cursor":"pointer"}}className="navbar-right-content">Log Out</a>
+                </p>
+              <a href="/login" onClick={props.onlogout} style={{"cursor":"pointer"}}className="navbar-right-content">Log Out</a>
             </Nav>
           </Navbar.Collapse>
         
