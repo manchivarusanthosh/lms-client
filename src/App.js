@@ -30,7 +30,7 @@ function App () {
       Account: localStorage.getItem("Account") || "",
       Name: localStorage.getItem("Name") || ""
     })
-    setIsLogin(localStorage.getItem("isLogin") === "true")
+    setIsLogin(localStorage.getItem("isLogin") == "true")
   }, [])
 
   const handleSubmit = event => {
@@ -81,15 +81,15 @@ function App () {
           decodedData.Account === undefined ||
           decodedData.Account === null) &&
         !(
-          decodedData.Account === 1 ||
-          decodedData.Account === 2 ||
-          decodedData.Account === 3
+          decodedData.Account == 1 ||
+          decodedData.Account == 2 ||
+          decodedData.Account == 3
         )
       ) {
         setPass(false)
         setLoading(false)
       } else {
-        if (decodedData.Account === 1) {
+        if (decodedData.Account == 1) {
           
           setPass(true)
           setLoading(false)
@@ -109,10 +109,11 @@ function App () {
             Account: localStorage.getItem("Account") || "",
             Name: localStorage.getItem("Name") || ""
           })
-          setIsLogin(localStorage.getItem("isLogin") === "true")
-          history.push("/admin/role");   
+          setIsLogin(localStorage.getItem("isLogin") == "true")
+          history.push("/admin/role"); 
+          // console.log("ended")  
         }
-        if (decodedData.Account === 2) {
+        if (decodedData.Account == 2) {
           
           setPass(true)
           setLoading(false)
@@ -135,7 +136,7 @@ function App () {
           setIsLogin(localStorage.getItem("isLogin") === "true")
           history.push("/hr/employee");
         }
-        if (decodedData.Account === 3) {
+        if (decodedData.Account == 3) {
           setPass(true)
           setLoading(false)
           setIsLogin(true)
@@ -152,7 +153,7 @@ function App () {
             Account: localStorage.getItem("Account") || "",
             Name: localStorage.getItem("Name") || ""
           })
-          setIsLogin(localStorage.getItem("isLogin") === "true")
+          setIsLogin(localStorage.getItem("isLogin") == "true")
           history.push("/employee/" + decodedData._id + "/personal-info");
         }
       }
@@ -173,8 +174,8 @@ function App () {
         <Route
               exact
               path="/login"
-              render={() => data["Account"] === 1 ? (<Redirect to="/admin" />) : data["Account"] === 2 ? (<Redirect to="/hr"/>) : //
-                  data["Account"] === 3 ? (<Redirect to="/employee" />) : (
+              render={() => data["Account"] == 1 ? (<Redirect to="/admin" />) : data["Account"] == 2 ? (<Redirect to="/hr"/>) : //
+                  data["Account"] == 3 ? (<Redirect to="/employee" />) : (
                       <Login
                         loading={loading}
                         pass={pass}
@@ -187,7 +188,7 @@ function App () {
             // exact
             path="/admin"
             render={() =>
-              data["Account"] === 1 ? (
+              data["Account"] == 1 ? (
                 <DashboardAdmin data={data} onlogout={handleLogout} />
 
               ) : (
