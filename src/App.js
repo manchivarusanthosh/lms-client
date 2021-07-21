@@ -10,12 +10,16 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
-import DashboardAdmin from "./components/Admin/DashboardAdmin";
+
 
 import history from "./history.js";
-
 import Login from "./components/Login/Login.jsx";
 import axios from "axios";
+
+import DashboardAdmin from "./components/Admin/DashboardAdmin";
+import DashboardHR from './components/HR/DashboardHR'
+import DashboardEmployee from './components/Employee/DashboardEmployee'
+
 
 function App () {
   const [data,setData] = useState({})
@@ -55,7 +59,7 @@ function App () {
       Account: localStorage.getItem("Account") || "",
       Name: localStorage.getItem("Name") || ""
     })
-    setIsLogin(localStorage.getItem("isLogin") === "true")
+    setIsLogin(localStorage.getItem("isLogin") == "true")
   };
 
   const login =(userMail,userPass) => {
@@ -76,10 +80,10 @@ function App () {
       localStorage.setItem("token", res.data);
 
       if (
-        (res === undefined ||
-          res === null ||
-          decodedData.Account === undefined ||
-          decodedData.Account === null) &&
+        (res == undefined ||
+          res == null ||
+          decodedData.Account == undefined ||
+          decodedData.Account == null) &&
         !(
           decodedData.Account == 1 ||
           decodedData.Account == 2 ||
@@ -110,8 +114,7 @@ function App () {
             Name: localStorage.getItem("Name") || ""
           })
           setIsLogin(localStorage.getItem("isLogin") == "true")
-          history.push("/admin/role"); 
-          // console.log("ended")  
+          history.push("/admin/role");   
         }
         if (decodedData.Account == 2) {
           
@@ -133,7 +136,7 @@ function App () {
             Account: localStorage.getItem("Account") || "",
             Name: localStorage.getItem("Name") || ""
           })
-          setIsLogin(localStorage.getItem("isLogin") === "true")
+          setIsLogin(localStorage.getItem("isLogin") == "true")
           history.push("/hr/employee");
         }
         if (decodedData.Account == 3) {
@@ -196,7 +199,35 @@ function App () {
                 )
             }
           />
-        
+          <Route
+            // exact
+            path="/hr"
+            render={() =>
+              data["Account"] == 2 ? (
+                <DashboardHR
+                  data={data}
+                  onlogout={handleLogout}
+                />
+              ) : (
+                  <Redirect to="/login" />
+                )
+            }
+          />
+
+        <Route
+            // exact
+            path="/employee"
+            render={() =>
+              data["Account"] == 3 ? (
+                <DashboardEmployee
+                  data={data}
+                  onlogout={handleLogout}
+                />
+              ) : (
+                  <Redirect to="/login" />
+                )
+            }
+          />      
       </Switch>
     </Router>
   )
