@@ -9,14 +9,14 @@ const override = css`
   margin: 0 auto;
   border-color: red;
 `;
-
+// { backgroundImage:`url(${home_page})` }
 function Login(props) {
     // const {loading,pass} = props 
     
     // console.log(loading)
     return (
         <div>
-        <div className="container" styles={{ backgroundImage:`url(${home_page})` }}>
+        <div className="container">
           {/* <img src={home_page} alt="bg"/> */}
           <div id="main-outer-div">
             <div id="logo-div">   
