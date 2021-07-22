@@ -30,7 +30,7 @@ function App () {
   // const history = useHistory()
   useEffect(() => {
     setData({
-      id: localStorage.getItem("_id") || "",
+      _id: localStorage.getItem("_id") || "",
       Account: localStorage.getItem("Account") || "",
       Name: localStorage.getItem("Name") || ""
     })
@@ -55,7 +55,7 @@ function App () {
     console.log("logout");
     localStorage.clear();
     setData({
-      id: localStorage.getItem("_id") || "",
+      _id: localStorage.getItem("_id") || "",
       Account: localStorage.getItem("Account") || "",
       Name: localStorage.getItem("Name") || ""
     })
@@ -72,7 +72,6 @@ function App () {
     axios.post("http://localhost:9002/login",bodyLogin)
     .then( res => {
       // console.log(decodedData.Account);
-      
       var decodedData = jwt.decode(res.data);
       console.log("Here is the decoded data")
       console.log(decodedData.Account)
@@ -107,9 +106,9 @@ function App () {
             decodedData["FirstName"] + " " + decodedData["LastName"]
           );
 
-          //actually componentDidmount Is Called  we have to use UseEffect instead
+         
           setData({
-            id: localStorage.getItem("_id") || "",
+            _id: localStorage.getItem("_id") || "",
             Account: localStorage.getItem("Account") || "",
             Name: localStorage.getItem("Name") || ""
           })
@@ -130,14 +129,14 @@ function App () {
             decodedData["FirstName"] + " " + decodedData["LastName"]
           );
           
-          //actually componentDidmount Is Called  we have to use UseEffect instead
+          
           setData({
-            id: localStorage.getItem("_id") || "",
+            _id: localStorage.getItem("_id") || "",
             Account: localStorage.getItem("Account") || "",
             Name: localStorage.getItem("Name") || ""
           })
           setIsLogin(localStorage.getItem("isLogin") == "true")
-          history.push("/hr/employee");
+          history.push("/hr/home");  //default page has to add
         }
         if (decodedData.Account == 3) {
           setPass(true)
@@ -150,14 +149,16 @@ function App () {
             "Name",
             decodedData["FirstName"] + " " + decodedData["LastName"]
           );
-          //actually componentDidmount Is Called  we have to use UseEffect instead
+          console.log("decoded id",decodedData["_id"])
+         
+          
           setData({
-            id: localStorage.getItem("_id") || "",
+            _id: localStorage.getItem("_id") || "",
             Account: localStorage.getItem("Account") || "",
             Name: localStorage.getItem("Name") || ""
           })
           setIsLogin(localStorage.getItem("isLogin") == "true")
-          history.push("/employee/" + decodedData._id + "/personal-info");
+          history.push("/employee/" + decodedData["_id"]+ "/home");
         }
       }
 
@@ -227,7 +228,8 @@ function App () {
                   <Redirect to="/login" />
                 )
             }
-          />      
+          />     
+          <Redirect to="/login" /> 
       </Switch>
     </Router>
   )

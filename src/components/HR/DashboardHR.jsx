@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import "./DashboardHR.css";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
-// import { Switch } from "react-router";
-// import { Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Switch } from "react-router";
+import { Redirect } from "react-router-dom";
 
 
 // import Role from "../Role.jsx";
 import NavBar from "../NavBar.jsx";
 
+//components hr
+import HRHome from "./HRHome";
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -63,52 +65,46 @@ function DashboardAdmin(props) {
               <div id="sidebar-top-content" />
               <div id="main-title">
                 <FontAwesomeIcon icon={faUsersCog} className="sidebar-icon" />
-                Admin
+                HR
               </div>
               <ul className="navbar-ul">
                 <li>
-                  <Link to="/admin/role">
+                  <Link to="/hr/home">
                     <FontAwesomeIcon icon={faUsers} className="sidebar-icon" /> 
-                    Role 
+                    Home 
                   </Link> 
                 </li>
                 <li>
-                  <Link to="/admin/position">
+                  <Link to="/hr/leaveapplication">
                     <FontAwesomeIcon icon={faChair} className="sidebar-icon" /> 
-                    Position 
+                    Leave Application 
                   </Link> 
                 </li>
                 <li>
-                  <Link to="/admin/department">
+                  <Link to="/hr/holidays">
                     <FontAwesomeIcon
                       icon={faBuilding}
                       className="sidebar-icon"
                     /> 
-                    Department 
+                    Holidays 
                   </Link> 
                 </li>
                 <li>
-                  <Link to="/admin/project-bid">
+                  <Link to="/hr/profile">
                     <FontAwesomeIcon
                       icon={faDollarSign}
                       className="sidebar-icon"
                     /> 
-                    Project Bidding 
+                    Profile
                   </Link> 
                 </li>
-                <li>
-                  <Link to="/admin/portal-master">
-                    <FontAwesomeIcon icon={faTasks} className="sidebar-icon" /> 
-                    Portal Master 
-                  </Link> 
-                </li>
-                
               </ul>
             </div>
-           
             <div id="main-area">
               <div id="sidebar-top-content" />
-                <h1> Content to be added</h1>
+                <Switch>
+                  <Route path="/hr/home" exact component={HRHome}/>
+                </Switch>
             </div>
           </div> 
         </div> 

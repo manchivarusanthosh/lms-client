@@ -67,15 +67,15 @@ function DashboardAdmin(props) {
               </div>
               <ul className="navbar-ul">
                 <li>
-                  <Link to="/admin/role">
+                  <Link to="/admin/profile">
                     <FontAwesomeIcon icon={faUsers} className="sidebar-icon" /> 
-                    Role 
+                    Profile 
                   </Link> 
                 </li>
                 <li>
                   <Link to="/admin/position">
                     <FontAwesomeIcon icon={faChair} className="sidebar-icon" /> 
-                    Position 
+                    Admin Settings 
                   </Link> 
                 </li>
                 <li>
@@ -84,22 +84,7 @@ function DashboardAdmin(props) {
                       icon={faBuilding}
                       className="sidebar-icon"
                     /> 
-                    Department 
-                  </Link> 
-                </li>
-                <li>
-                  <Link to="/admin/project-bid">
-                    <FontAwesomeIcon
-                      icon={faDollarSign}
-                      className="sidebar-icon"
-                    /> 
-                    Project Bidding 
-                  </Link> 
-                </li>
-                <li>
-                  <Link to="/admin/portal-master">
-                    <FontAwesomeIcon icon={faTasks} className="sidebar-icon" /> 
-                    Portal Master 
+                    Settings 
                   </Link> 
                 </li>
                 
