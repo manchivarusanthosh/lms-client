@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./DashboardEmployee.css";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // import { Switch } from "react-router";
 // import { Redirect } from "react-router-dom";
 
@@ -8,6 +8,10 @@ import { HashRouter as Router, Route, Link } from "react-router-dom";
 // import Role from "../Role.jsx";
 import NavBar from "../NavBar.jsx";
 
+//components
+import Employeehome from "./Employeehome";
+import EmpProfile from "./EmpProfile";
+import LeaveApplicationEmp from "./LeaveApplicationEmp";
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -29,11 +33,16 @@ function DashboardAdmin(props) {
 //     redirect: true,
 //     checked: true 
 //   };
-  
+    console.log("Value of props",props)
+    console.log("value of data in props",props.data)
+    console.log("value of id in data in props _id",props.data["_id"])
+
+    console.log("value of id in data in props",props.data["id"])
+
+
     const [redirect, setRedirect] = useState(true)
     const [checked, setChecked] = useState(true)
     console.log("starting value",checked)
-    
     const handleChange=(checked)=> {
     console.log("switch");
     console.log("Start:",checked)
@@ -52,7 +61,9 @@ function DashboardAdmin(props) {
 
   
     return (
+     
       <Router>
+
         <div id="outer-main-div">
           <div id="outer-nav">
             <NavBar loginInfo={props.data} checked={checked} handleChange={handleChange} onlogout={props.onlogout}/>
@@ -63,52 +74,55 @@ function DashboardAdmin(props) {
               <div id="sidebar-top-content" />
               <div id="main-title">
                 <FontAwesomeIcon icon={faUsersCog} className="sidebar-icon" />
-                Admin
+                Employee
               </div>
               <ul className="navbar-ul">
                 <li>
-                  <Link to="/admin/role">
+                  <Link to= { "/employee/" + props.data["_id"] + "/home"}>
                     <FontAwesomeIcon icon={faUsers} className="sidebar-icon" /> 
-                    Role 
+                    Home 
                   </Link> 
                 </li>
                 <li>
-                  <Link to="/admin/position">
+                  <Link to={ "/employee/"+ props.data["_id"]+ "/leave-application-emp"}>
                     <FontAwesomeIcon icon={faChair} className="sidebar-icon" /> 
-                    Position 
+                    LeaveApplication 
                   </Link> 
                 </li>
                 <li>
-                  <Link to="/admin/department">
+                  <Link to={ "/employee/"+ props.data["_id"] +"/profile"}>
                     <FontAwesomeIcon
                       icon={faBuilding}
                       className="sidebar-icon"
                     /> 
-                    Department 
+                    Profile 
                   </Link> 
                 </li>
-                <li>
-                  <Link to="/admin/project-bid">
-                    <FontAwesomeIcon
-                      icon={faDollarSign}
-                      className="sidebar-icon"
-                    /> 
-                    Project Bidding 
-                  </Link> 
-                </li>
-                <li>
-                  <Link to="/admin/portal-master">
-                    <FontAwesomeIcon icon={faTasks} className="sidebar-icon" /> 
-                    Portal Master 
-                  </Link> 
-                </li>
-                
               </ul>
             </div>
            
             <div id="main-area">
               <div id="sidebar-top-content" />
-                <h1> Content to be added</h1>
+                <Switch>
+
+                  {/* Home Route */}
+                  <Route exact path="/employee/:id/home" 
+                  render={()=>
+                    <Employeehome data={props.data} back={false}/>
+                  }/>
+
+                {/* Leave Application Route */}
+                  <Route exact path="/employee/:id/leave-application-emp"
+                    render={() => <LeaveApplicationEmp data={props.data} />}
+                  />
+
+                {/* Profile Route */}
+                <Route exact path="/employee/:id/profile" 
+                  render={()=>
+                    <EmpProfile data={props.data} back={false}/>
+                  }/>
+
+                </Switch>
             </div>
           </div> 
         </div> 
