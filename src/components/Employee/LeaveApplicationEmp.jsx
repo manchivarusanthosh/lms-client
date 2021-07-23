@@ -6,12 +6,6 @@ import LeaveApplicationEmpForm from "./LeaveApplicationEmpForm.jsx";
 import LeaveApplicationEmpFormEdit from "./LeaveApplicationEmpFormEdit.jsx";
 import { tr } from "react-dom-factories";
 function LeaveApplicationEmp(props) {
-//   state = {
-//     table: true,
-//     editForm: false,
-//     editData: {},
-
-//   };
 console.log("LeaveApplicationEmp",props)
 console.log("props data",props.data)
 console.log("props data id",props.data["_id"])
@@ -59,32 +53,19 @@ const handleLeaveApplicationEmpSubmit = event => {
   const handleEditLeaveApplicationEmp = e => {
     console.log(e);
     console.log("clicked6");
-    // this.setState({ editForm: true });
-    // this.setState({ editData: e });
-    // this.setState({ editFormGender: e["Gender"] })
-
     setEditForm(true)
     setEditData(e)
-
-
   };
   const handleFormClose = () => {
     console.log("clicked1");
-    // this.setState({ table: true });
     setTable(true)
   };
   const handleEditFormClose = () => {
     console.log("clicked5");
-    // this.setState({ editForm: false });
-    setEditForm(true)
+    setEditForm(false)
   };
 
-  // below formclose commented by admins
-
-  // handleFormClose = () => {
-  //   console.log("clicked1");
-  //   this.setState({ table: true });
-  // };
+  
   const handleLeaveApplicationEmpEditUpdate = (info, newInfo) => {
     newInfo.preventDefault();
     console.log("zero data", newInfo.target[0].value);
@@ -106,17 +87,12 @@ const handleLeaveApplicationEmpSubmit = event => {
       }
       )
       .then(res => {
-        // this.setState({ table: false });
-        // this.setState({ table: true });
-
         setTable(false)
         setTable(true)
       })
       .catch(err => {
         console.log(err);
       });
-
-    // this.setState({ editForm: false });
     setEditForm(false)
   };
 
