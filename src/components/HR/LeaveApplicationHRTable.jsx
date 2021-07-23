@@ -160,27 +160,28 @@ function LeaveApplicationHRTable(props) {
       });
   };
 
+  //Delete Function  for HR is disabled for now
 
-  const onLeaveApplicationHRDelete = (e1, e2) => {
-    console.log(e1, e2);
-    if (window.confirm("Are you sure to delete this record? ") == true) {
-      axios
-        .delete(
-          "http://localhost:9002/leave-application-hr/" + e1 + "/" + e2, {
-          headers: {
-            authorization: localStorage.getItem("token") || ""
-          }
-        }
-        )
-        .then(res => {
-          // this.componentDidMount();
-          loadLeaveApplicationHRData()
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-  };
+  // const onLeaveApplicationHRDelete = (e1, e2) => {
+  //   console.log(e1, e2);
+  //   if (window.confirm("Are you sure to delete this record? ") == true) {
+  //     axios
+  //       .delete(
+  //         "http://localhost:9002/leave-application-hr/" + e1 + "/" + e2, {
+  //         headers: {
+  //           authorization: localStorage.getItem("token") || ""
+  //         }
+  //       }
+  //       )
+  //       .then(res => {
+  //         // this.componentDidMount();
+  //         loadLeaveApplicationHRData()
+  //       })
+  //       .catch(err => {
+  //         console.log(err);
+  //       });
+  //   }
+  // };
 
 
   // componentDidMount() {
@@ -195,9 +196,9 @@ function LeaveApplicationHRTable(props) {
     return (
       <FontAwesomeIcon
         icon={faTrash}
-        onClick={() =>
-          onLeaveApplicationHRDelete(params.data.data["employee"][0]["_id"], params.data.data["_id"])
-        }
+        // onClick={() =>
+        //   onLeaveApplicationHRDelete(params.data.data["employee"][0]["_id"], params.data.data["_id"])
+        // }
       />
     );
   }
