@@ -6,11 +6,15 @@ import { faPlus, faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { RingLoader } from "react-spinners";
 import { css } from "@emotion/core";
 import { Button } from "react-bootstrap";
-import { AgGridReact } from "ag-grid-react";
+import { AgGridReact,AgGridColumn } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
+
+
 import { useState } from "react";
 import { useEffect } from "react";
+
+
 
 const override = css`
   display: block;
@@ -59,17 +63,19 @@ function LeaveApplicationEmpTable(props) {
       field: "edit",
       filter: false,
       width: 30,
-      // cellRendererFramework: renderEditButton.bind(this)
+      cellRendererFramework: renderEditButton.bind(this)
     },
     {
       headerName: "",
       field: "delete",
       filter: false,
       width: 30,
-      //cellRendererFramework: renderButton.bind(this)
+      cellRendererFramework: renderButton.bind(this)
     }
   ])
-  const [rowData, setrowData] = useState([])
+
+  
+  var [rowData, setrowData] = useState([])
   const [defaultColDef, setdefaultColDef] = useState({
     resizable: true,
     width: 235,
@@ -78,17 +84,16 @@ function LeaveApplicationEmpTable(props) {
   })
 
 
-  const [getRowHeight, setgetRowHeight] = useState(
-    function (params) {
-      return 35;
-    })
+  // const [getRowHeight, setgetRowHeight] = useState(
+  //   function (params) {
+  //     return 35;
+  //   })
 
-
+  
   var leaveApplicationEmpObj = [];
   var rowDataT = [];
   
-  console.log("rowData value",rowData)
-  console.log("Before loading function. rowDataT value", rowDataT)
+  
 
   useEffect(() => {
     loadLeaveApplicationEmpData()
@@ -108,16 +113,16 @@ function LeaveApplicationEmpTable(props) {
         // this.leaveApplicationEmpObj = response.data;
         leaveApplicationEmpObj = response.data
 
-        console.log("response", response.data);
+      
         // this.setState({ leaveApplicationEmpData: response.data });
         // this.setState({ loading: false });
         // this.rowDataT = [];
 
         setleaveApplicationEmpData(response.data)
+       
         setloading(false)
         rowDataT = []
-        console.log("loading emp data response",response.data)
-
+        
         // let data=this.educationObj.education["0"];  already commented this line
         leaveApplicationEmpObj.leaveApplication.map(data => {
           let temp = {
@@ -127,20 +132,21 @@ function LeaveApplicationEmpTable(props) {
             ToDate: data["ToDate"].slice(0, 10),
             Reasonforleave: data["Reasonforleave"],
             // Status: this.status(data["Status"]),  commented by me
-            Status: data["Status"],
+            Status: status(data["Status"]),   //status() function call
 
           };
 
           // this.rowDataT.push(temp);
-          console.log("temp data",temp)
+          
           rowDataT.push(temp)
         });
         // this.setState({ rowData: this.rowDataT });
-        console.log("rowDataT",rowDataT)
-  
+        
+       
+        //setrowData(rowDataT)
+        console.log("rowDataT values",rowDataT)
         setrowData(rowDataT)
-        console.log("After setrowData function rowData value",rowData)
-        console.log("After setrowData function rowDataT",rowDataT)
+        console.log("rowData after setrowData",rowData)
 
       })
       .catch(error => {
@@ -154,7 +160,7 @@ function LeaveApplicationEmpTable(props) {
     if (window.confirm("Are you sure to delete this record? ") == true) {
       axios
         .delete(
-          "http://localhost:9002/api/leave-application-emp/" + e1 + "/" + e2, {
+          "http://localhost:9002/leave-application-emp/" + e1 + "/" + e2, {
           headers: {
             authorization: localStorage.getItem("token") || ""
           }
@@ -175,26 +181,28 @@ function LeaveApplicationEmpTable(props) {
   // }
 
 
-  // renderButton(params) {
-  //   console.log(params);
-  //   return (
-  //     <FontAwesomeIcon
-  //       icon={faTrash}
-  //       onClick={() =>
-  //         onLeaveApplicationEmpDelete(props.data["_id"], params.data.data["_id"])
-  //       }
-  //     />
-  //   );
-  // }
-  // renderEditButton(params) {
-  //   console.log(params);
-  //   return (
-  //     <FontAwesomeIcon
-  //       icon={faEdit}
-  //       onClick={() => onEdit(params.data.data)}
-  //     />
-  //   );
-  // }
+ function renderButton(params) {
+    console.log("here is the params",params);
+    console.log("here is the props data",props.data["_id"])
+    console.log("here is the params.data.data",params.data.data["_id"])
+    return (
+      <FontAwesomeIcon
+        icon={faTrash}
+        onClick={() =>
+          onLeaveApplicationEmpDelete(props.data["_id"], params.data.data["_id"])
+        }
+      />
+    );
+  }
+  function renderEditButton(params) {
+    console.log(params);
+    return (
+      <FontAwesomeIcon
+        icon={faEdit}
+        onClick={() => onEdit(params.data.data)}
+      />
+    );
+  }
 
   const status = s => {
     if (s == 1) {
@@ -238,18 +246,19 @@ function LeaveApplicationEmpTable(props) {
         <div
           id="table-div"
           className="ag-theme-balham"
+          style={{height:"350px", width:"100%"}}
         >
           <AgGridReact
             columnDefs={columnDefs}
             defaultColDef={defaultColDef}
-            //columnTypes={columnTypes}
+            // columnTypes={columnTypes}
             rowData={rowData}
-            // floatingFilter={true}
-            // onGridReady={this.onGridReady}
             pagination={true}
             paginationPageSize={10}
-            getRowHeight={getRowHeight}
+            // getRowHeight={getRowHeight}
+           
           />
+          
         </div>
       ) : (
         <div id="loading-bar">
@@ -262,8 +271,6 @@ function LeaveApplicationEmpTable(props) {
           />
         </div>
       )}
-
-
 
     </div>
   );
