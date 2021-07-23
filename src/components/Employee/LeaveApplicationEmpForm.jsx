@@ -64,7 +64,7 @@ function LeaveApplicationEmpForm(props)  {
                             </Form.Control>
                         </Col>
                     </Form.Group>
-
+                <div className="submit-and-cancel-button">       
                     <Form.Group as={Row} id="form-submit-button">
                         <Col sm={{ span: 10, offset: 2 }}>
                             <Button type="submit">Submit</Button>
@@ -72,9 +72,10 @@ function LeaveApplicationEmpForm(props)  {
                     </Form.Group>
                     <Form.Group as={Row} id="form-cancel-button">
                         <Col sm={{ span: 10, offset: 2 }} id="form-cancel-button-inner">
-                            <Button type="reset" onClick={props.onFormClose}>cancel</Button>
+                            <Button type="reset" className="cancel-button" onClick={props.onFormClose}>Cancel</Button>
                         </Col>
                     </Form.Group>
+                    </div>
                 </Form></div>
             </div>
         );

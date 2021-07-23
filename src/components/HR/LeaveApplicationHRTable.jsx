@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import "./LeaveApplicationEmpTable.css";
+
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { RingLoader } from "react-spinners";
 import { css } from "@emotion/core";
 import { Button } from "react-bootstrap";
-import { AgGridReact,AgGridColumn } from "ag-grid-react";
+import { AgGridReact, AgGridColumn } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
 
@@ -74,7 +74,7 @@ function LeaveApplicationHRTable(props) {
     }
   ])
 
-  
+
   var [rowData, setrowData] = useState([])
   const [defaultColDef, setdefaultColDef] = useState({
     resizable: true,
@@ -89,11 +89,11 @@ function LeaveApplicationHRTable(props) {
   //     return 35;
   //   })
 
-  
+
   var leaveApplicationHRObj = [];
   var rowDataT = [];
-  
-  
+
+
 
   useEffect(() => {
     loadLeaveApplicationHRData()
@@ -113,13 +113,13 @@ function LeaveApplicationHRTable(props) {
         // this.leaveApplicationEmpObj = response.data;
         leaveApplicationHRObj = response.data
 
-      
+
         // this.setState({ leaveApplicationEmpData: response.data });
         // this.setState({ loading: false });
         // this.rowDataT = [];
 
         setleaveApplicationHRData(response.data)
-       
+
         setloading(false)
         rowDataT = []
         console.log(leaveApplicationHRObj)
@@ -137,16 +137,16 @@ function LeaveApplicationHRTable(props) {
           };
 
           // this.rowDataT.push(temp);
-          
+
           rowDataT.push(temp)
         });
         // this.setState({ rowData: this.rowDataT });
-        
-       
+
+
         //setrowData(rowDataT)
-        console.log("rowDataT values",rowDataT)
+        console.log("rowDataT values", rowDataT)
         setrowData(rowDataT)
-        console.log("rowData after setrowData",rowData)
+        console.log("rowData after setrowData", rowData)
 
       })
       .catch(error => {
@@ -176,13 +176,13 @@ function LeaveApplicationHRTable(props) {
     }
   };
 
-  
+
   // componentDidMount() {
   //   this.loadLeaveApplicationEmpData();
   // }
 
 
- function renderButton(params) {
+  function renderButton(params) {
     // console.log("here is the params",params);
     // console.log("here is the props data",props.data["_id"])
     // console.log("here is the params.data.data",params.data.data["_id"])
@@ -216,30 +216,31 @@ function LeaveApplicationHRTable(props) {
       return "Rejected";
     }
   };
-//   const onEdit = data => {
-//     if (data["Status"] == 1) {
-//       props.onEditLeaveApplicationEmp(data);
-//     } else {
-//       window.alert(
-//         "You can not edit application after it approved or rejected"
-//       );
-//     }
-//   };
+  //   const onEdit = data => {
+  //     if (data["Status"] == 1) {
+  //       props.onEditLeaveApplicationEmp(data);
+  //     } else {
+  //       window.alert(
+  //         "You can not edit application after it approved or rejected"
+  //       );
+  //     }
+  //   };
 
 
   return (
     <div id="table-outer-div-scroll">
-      <h2 id="role-title">Leave Application</h2>
+      <div className="heading-and-button">
+        <h2 id="role-title">Leave Application</h2>
 
-      <Button
-        variant="primary"
-        id="add-button"
-        onClick={props.onAddLeaveApplicationEmp}
-      >
-        <FontAwesomeIcon icon={faPlus} id="plus-icon" />
-        Add
-      </Button>
-
+        <Button
+          variant="primary"
+          id="add-button"
+          onClick={props.onAddLeaveApplicationEmp}
+        >
+          <FontAwesomeIcon icon={faPlus} id="plus-icon" />
+          Add
+        </Button>
+      </div>
       <div id="clear-both" />
 
 
@@ -247,7 +248,7 @@ function LeaveApplicationHRTable(props) {
         <div
           id="table-div"
           className="ag-theme-balham"
-          style={{height:"350px", width:"100%"}}
+          style={{ height: "350px", width: "100%" }}
         >
           <AgGridReact
             columnDefs={columnDefs}
@@ -256,10 +257,10 @@ function LeaveApplicationHRTable(props) {
             rowData={rowData}
             pagination={true}
             paginationPageSize={10}
-            // getRowHeight={getRowHeight}
-           
+          // getRowHeight={getRowHeight}
+
           />
-          
+
         </div>
       ) : (
         <div id="loading-bar">

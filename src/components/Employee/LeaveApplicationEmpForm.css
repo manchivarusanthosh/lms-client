@@ -1,0 +1,11 @@
+.submit-and-cancel-button
+{
+    display: flex;
+    justify-content: center;
+    
+    margin: 10px;
+}
+.cancel-button
+{
+    margin-left: 10px;
+}

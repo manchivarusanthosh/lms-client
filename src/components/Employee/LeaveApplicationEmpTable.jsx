@@ -6,7 +6,7 @@ import { faPlus, faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { RingLoader } from "react-spinners";
 import { css } from "@emotion/core";
 import { Button } from "react-bootstrap";
-import { AgGridReact,AgGridColumn } from "ag-grid-react";
+import { AgGridReact, AgGridColumn } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
 
@@ -74,7 +74,7 @@ function LeaveApplicationEmpTable(props) {
     }
   ])
 
-  
+
   var [rowData, setrowData] = useState([])
   const [defaultColDef, setdefaultColDef] = useState({
     resizable: true,
@@ -89,11 +89,11 @@ function LeaveApplicationEmpTable(props) {
   //     return 35;
   //   })
 
-  
+
   var leaveApplicationEmpObj = [];
   var rowDataT = [];
-  
-  
+
+
 
   useEffect(() => {
     loadLeaveApplicationEmpData()
@@ -113,16 +113,16 @@ function LeaveApplicationEmpTable(props) {
         // this.leaveApplicationEmpObj = response.data;
         leaveApplicationEmpObj = response.data
 
-      
+
         // this.setState({ leaveApplicationEmpData: response.data });
         // this.setState({ loading: false });
         // this.rowDataT = [];
 
         setleaveApplicationEmpData(response.data)
-       
+
         setloading(false)
         rowDataT = []
-        
+
         // let data=this.educationObj.education["0"];  already commented this line
         leaveApplicationEmpObj.leaveApplication.map(data => {
           let temp = {
@@ -137,16 +137,16 @@ function LeaveApplicationEmpTable(props) {
           };
 
           // this.rowDataT.push(temp);
-          
+
           rowDataT.push(temp)
         });
         // this.setState({ rowData: this.rowDataT });
-        
-       
+
+
         //setrowData(rowDataT)
-        console.log("rowDataT values",rowDataT)
+        console.log("rowDataT values", rowDataT)
         setrowData(rowDataT)
-        console.log("rowData after setrowData",rowData)
+        console.log("rowData after setrowData", rowData)
 
       })
       .catch(error => {
@@ -181,10 +181,10 @@ function LeaveApplicationEmpTable(props) {
   // }
 
 
- function renderButton(params) {
-    console.log("here is the params",params);
-    console.log("here is the props data",props.data["_id"])
-    console.log("here is the params.data.data",params.data.data["_id"])
+  function renderButton(params) {
+    console.log("here is the params", params);
+    console.log("here is the props data", props.data["_id"])
+    console.log("here is the params.data.data", params.data.data["_id"])
     return (
       <FontAwesomeIcon
         icon={faTrash}
@@ -228,17 +228,18 @@ function LeaveApplicationEmpTable(props) {
 
   return (
     <div id="table-outer-div-scroll">
-      <h2 id="role-title">Leave Application</h2>
+      <div className="heading-and-button">
+        <h2 id="role-title">Leave Application</h2>
 
-      <Button
-        variant="primary"
-        id="add-button"
-        onClick={props.onAddLeaveApplicationEmp}
-      >
-        <FontAwesomeIcon icon={faPlus} id="plus-icon" />
-        Add
-      </Button>
-
+        <Button
+          variant="primary"
+          id="add-button"
+          onClick={props.onAddLeaveApplicationEmp}
+        >
+          <FontAwesomeIcon icon={faPlus} id="plus-icon" />
+          Add
+        </Button>
+      </div>
       <div id="clear-both" />
 
 
@@ -246,7 +247,7 @@ function LeaveApplicationEmpTable(props) {
         <div
           id="table-div"
           className="ag-theme-balham"
-          style={{height:"350px", width:"100%"}}
+          style={{ height: "350px", width: "100%" }}
         >
           <AgGridReact
             columnDefs={columnDefs}
@@ -255,10 +256,10 @@ function LeaveApplicationEmpTable(props) {
             rowData={rowData}
             pagination={true}
             paginationPageSize={10}
-            // getRowHeight={getRowHeight}
-           
+          // getRowHeight={getRowHeight}
+
           />
-          
+
         </div>
       ) : (
         <div id="loading-bar">

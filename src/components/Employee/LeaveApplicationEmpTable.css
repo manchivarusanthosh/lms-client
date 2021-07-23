@@ -1,0 +1,5 @@
+.heading-and-button{
+    display: flex;
+    justify-content: space-between;
+    padding:10px;
+}

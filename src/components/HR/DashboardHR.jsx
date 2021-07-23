@@ -16,20 +16,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUsersCog,
   faUsers,
-  faChair,
-  faBuilding,
-  faDollarSign,
-  faTasks
+  faHome,
+  faPenFancy,
+  faListAlt,
 } from "@fortawesome/free-solid-svg-icons";
-import LeaveApplicationHR from "./LeaveApplicationHR";
 
-// function RoleAdminF() {
-//   return <Role />;
-// }
+
+import LeaveApplicationHR from "./LeaveApplicationHR";
 
 function DashboardAdmin(props) {
 //   state = {
-//     redirect: true,
+//     redirect: true,  
 //     checked: true 
 //   };
   
@@ -71,20 +68,20 @@ function DashboardAdmin(props) {
               <ul className="navbar-ul">
                 <li>
                   <Link to="/hr/home">
-                    <FontAwesomeIcon icon={faUsers} className="sidebar-icon" /> 
+                    <FontAwesomeIcon icon={faHome} className="sidebar-icon" /> 
                     Home 
                   </Link> 
                 </li>
                 <li>
                   <Link to="/hr/leave-application-hr">
-                    <FontAwesomeIcon icon={faChair} className="sidebar-icon" /> 
+                    <FontAwesomeIcon icon={faPenFancy} className="sidebar-icon" /> 
                     Leave Application 
                   </Link> 
                 </li>
                 <li>
                   <Link to="/hr/holidays">
                     <FontAwesomeIcon
-                      icon={faBuilding}
+                      icon={faListAlt}
                       className="sidebar-icon"
                     /> 
                     Holidays 
@@ -93,7 +90,7 @@ function DashboardAdmin(props) {
                 <li>
                   <Link to="/hr/profile">
                     <FontAwesomeIcon
-                      icon={faDollarSign}
+                      icon={faUsers}
                       className="sidebar-icon"
                     /> 
                     Profile
@@ -104,7 +101,7 @@ function DashboardAdmin(props) {
             <div id="main-area">
               <div id="sidebar-top-content" />
                 <Switch>
-                  <Route path="/hr/home" exact component={HRHome}/>
+                  <Route path="/hr/home" component={HRHome}/>
                   <Route path="/hr/leave-application-hr" exact component={LeaveApplicationHR}/>
                 </Switch>
             </div>

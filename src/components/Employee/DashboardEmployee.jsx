@@ -18,10 +18,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUsersCog,
   faUsers,
-  faChair,
-  faBuilding,
-  faDollarSign,
-  faTasks
+  faHome,
+  faPenFancy,
+  faListAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
 // function RoleAdminF() {
@@ -79,20 +78,20 @@ function DashboardAdmin(props) {
               <ul className="navbar-ul">
                 <li>
                   <Link to= { "/employee/" + props.data["_id"] + "/home"}>
-                    <FontAwesomeIcon icon={faUsers} className="sidebar-icon" /> 
+                    <FontAwesomeIcon icon={faHome} className="sidebar-icon" /> 
                     Home 
                   </Link> 
                 </li>
                 <li>
                   <Link to={ "/employee/"+ props.data["_id"]+ "/leave-application-emp"}>
-                    <FontAwesomeIcon icon={faChair} className="sidebar-icon" /> 
+                    <FontAwesomeIcon icon={faPenFancy} className="sidebar-icon" /> 
                     LeaveApplication 
                   </Link> 
                 </li>
                 <li>
                   <Link to={ "/employee/"+ props.data["_id"] +"/profile"}>
                     <FontAwesomeIcon
-                      icon={faBuilding}
+                      icon={faUsers}
                       className="sidebar-icon"
                     /> 
                     Profile 
