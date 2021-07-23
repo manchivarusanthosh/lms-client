@@ -6,17 +6,18 @@ import LeaveApplicationEmpForm from "./LeaveApplicationEmpForm.jsx";
 import LeaveApplicationEmpFormEdit from "./LeaveApplicationEmpFormEdit.jsx";
 import { tr } from "react-dom-factories";
 function LeaveApplicationEmp(props) {
-console.log("LeaveApplicationEmp",props)
-console.log("props data",props.data)
-console.log("props data id",props.data["_id"])
 
-const [table,setTable] = useState(true)
-const [editForm, setEditForm] = useState(false)
-const [editData,setEditData] = useState({})
+  console.log("LeaveApplicationEmp", props)
+  console.log("props data", props.data)
+  console.log("props data id", props.data["_id"])
+
+  const [table, setTable] = useState(true)
+  const [editForm, setEditForm] = useState(false)
+  const [editData, setEditData] = useState({})
 
 
 
-const handleLeaveApplicationEmpSubmit = event => {
+  const handleLeaveApplicationEmpSubmit = event => {
     event.preventDefault();
     console.log("id", event.target[0].value, event.target[1].value);
     // this.setState({ table: true });
@@ -65,7 +66,7 @@ const handleLeaveApplicationEmpSubmit = event => {
     setEditForm(false)
   };
 
-  
+
   const handleLeaveApplicationEmpEditUpdate = (info, newInfo) => {
     newInfo.preventDefault();
     console.log("zero data", newInfo.target[0].value);
@@ -79,7 +80,7 @@ const handleLeaveApplicationEmpSubmit = event => {
     console.log("update", body);
     axios
       .put(
-        "http://localhost:9002/leave-application-emp" + info["_id"],
+        "http://localhost:9002/leave-application-emp/" + info["_id"],
         body, {
         headers: {
           authorization: localStorage.getItem("token") || ""
@@ -96,32 +97,32 @@ const handleLeaveApplicationEmpSubmit = event => {
     setEditForm(false)
   };
 
-    return (
-      <React.Fragment>
-        {table ? (
-          editForm ? (
-            <LeaveApplicationEmpFormEdit
-              onLeaveApplicationEmpEditUpdate={handleLeaveApplicationEmpEditUpdate}
-              onFormEditClose={handleEditFormClose}
-              editData={editData}
-            />
-          ) : (
-            <LeaveApplicationEmpTable
-              onAddLeaveApplicationEmp={handleAddLeaveApplicationEmp}
-              onEditLeaveApplicationEmp={handleEditLeaveApplicationEmp}
-              data={props.data}
-            />
-          )
-        ) : (
-          <LeaveApplicationEmpForm
-            onLeaveApplicationEmpSubmit={handleLeaveApplicationEmpSubmit}
-            onFormClose={handleFormClose}
-            // onGenderChange={handleAddFormGenderChange}
+  return (
+    <React.Fragment>
+      {table ? (
+        editForm ? (
+          <LeaveApplicationEmpFormEdit
+            onLeaveApplicationEmpEditUpdate={handleLeaveApplicationEmpEditUpdate}
+            onFormEditClose={handleEditFormClose}
+            editData={editData}
           />
-        )}
-      </React.Fragment>
-    );
-  
+        ) : (
+          <LeaveApplicationEmpTable
+            onAddLeaveApplicationEmp={handleAddLeaveApplicationEmp}
+            onEditLeaveApplicationEmp={handleEditLeaveApplicationEmp}
+            data={props.data}
+          />
+        )
+      ) : (
+        <LeaveApplicationEmpForm
+          onLeaveApplicationEmpSubmit={handleLeaveApplicationEmpSubmit}
+          onFormClose={handleFormClose}
+        // onGenderChange={handleAddFormGenderChange}
+        />
+      )}
+    </React.Fragment>
+  );
+
 }
 
 export default LeaveApplicationEmp;

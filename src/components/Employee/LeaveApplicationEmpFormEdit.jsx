@@ -10,6 +10,8 @@ function LeaveApplicationEmpForm(props) {
     //     ReasonforleaveData: this.props.editData["Reasonforleave"],
     // };
 
+    console.log("form edit component",props.editData["FromDate"].slice(0, 10))
+
     const [FromDateData,setFromDateData] = useState(props.editData["FromDate"].slice(0, 10))
     const [ToDateData,setToDateData] = useState(props.editData["ToDate"].slice(0, 10))
     const [ReasonforleaveData, setReasonforleaveData] = useState(props.editData["Reasonforleave"])
