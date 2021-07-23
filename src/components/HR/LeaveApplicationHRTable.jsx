@@ -29,6 +29,11 @@ function LeaveApplicationHRTable(props) {
   const [loading, setloading] = useState(true)
   const [columnDefs, setcolumnDefs] = useState([
     {
+        headerName: "Employee Name",
+        field: "EmployeeName",
+        sortable: true,
+      },
+    {
       headerName: "Leave type",
       field: "Leavetype",
       sortable: true,
@@ -113,7 +118,7 @@ function LeaveApplicationHRTable(props) {
         // this.leaveApplicationEmpObj = response.data;
         leaveApplicationHRObj = response.data
 
-
+        console.log("leaveApplicationHRObj::::",leaveApplicationHRObj)
         // this.setState({ leaveApplicationEmpData: response.data });
         // this.setState({ loading: false });
         // this.rowDataT = [];
@@ -127,6 +132,7 @@ function LeaveApplicationHRTable(props) {
         leaveApplicationHRObj.map(data => {
           let temp = {
             data,
+            EmployeeName:data["EmployeeName"],
             Leavetype: data["Leavetype"],
             FromDate: data["FromDate"].slice(0, 10),
             ToDate: data["ToDate"].slice(0, 10),

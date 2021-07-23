@@ -37,14 +37,17 @@ function LeaveApplicationHR(props) {
     //             console.log(err);
     //         });
     // };
-    const handleLeaveApplicationHREditUpdate = (info, newInfo) => {
+    const handleLeaveApplicationHREditUpdate = async (info, newInfo) => {
+        
         newInfo.preventDefault();
         console.log("zero data", newInfo.target[0].value);
         let body = {
             Status: newInfo.target[4].value,
         };
         console.log("update", body);
-        axios
+        //leave id
+        console.log("employee id:",info["_id"])
+        await axios
             .put(
                 "http://localhost:9002/leave-application-hr/" + info["_id"],
                 body, {
@@ -58,13 +61,16 @@ function LeaveApplicationHR(props) {
                 // setState({ table: true });
                 setTable(false)
                 setTable(true)
+                console.log("im here")
             })
             .catch(err => {
                 console.log(err);
             });
-
-        // setState({ editForm: false });
         setEditForm(false)
+        //send mail form node mailer
+        await axios.post("http://localhost:9002/leave-application-hr/"+info["_id"]+"/status-mail/")
+
+        
     };
 
     const handleAddLeaveApplicationHR = () => {

@@ -19,17 +19,19 @@ function LeaveApplicationEmp(props) {
 
   const handleLeaveApplicationEmpSubmit = event => {
     event.preventDefault();
-    console.log("id", event.target[0].value, event.target[1].value);
+    // console.log("id", event.target[0].value, event.target[1].value);
     // this.setState({ table: true });
     setTable(true)
 
     let body = {
-      Leavetype: event.target[0].value,
-      FromDate: event.target[1].value,
-      ToDate: event.target[2].value,
-      Reasonforleave: event.target[3].value,
-      Status: event.target[4].value,
+      Name : event.target[0].value,
+      Leavetype: event.target[1].value,
+      FromDate: event.target[2].value,
+      ToDate: event.target[3].value,
+      Reasonforleave: event.target[4].value,
+      Status: event.target[5].value,
     };
+    // console.log("body name:",body.Name)
     axios
       .post("http://localhost:9002/leave-application-emp/" + props.data["_id"], body, {
         headers: {
@@ -47,13 +49,13 @@ function LeaveApplicationEmp(props) {
       });
   };
   const handleAddLeaveApplicationEmp = () => {
-    console.log("clicked1");
+    // console.log("clicked1");
     // this.setState({ table: false });
     setTable(false)
   };
   const handleEditLeaveApplicationEmp = e => {
-    console.log(e);
-    console.log("clicked6");
+    // console.log(e);
+    // console.log("clicked6");
     setEditForm(true)
     setEditData(e)
   };
@@ -69,7 +71,7 @@ function LeaveApplicationEmp(props) {
 
   const handleLeaveApplicationEmpEditUpdate = (info, newInfo) => {
     newInfo.preventDefault();
-    console.log("zero data", newInfo.target[0].value);
+    // console.log("zero data", newInfo.target[0].value);
     let body = {
       Leavetype: newInfo.target[0].value,
       FromDate: newInfo.target[1].value,

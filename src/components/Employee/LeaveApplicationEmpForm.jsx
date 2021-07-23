@@ -9,12 +9,21 @@ function LeaveApplicationEmpForm(props)  {
     // componentWillMount() {
 
     // }
-    
+    const name = localStorage.getItem("Name")
         return (
             <div>
                 <h2 id="role-form-title">Add LeaveApplicationEmp Details</h2>
                 <div id="role-form-outer-div"><Form id="form" onSubmit={props.onLeaveApplicationEmpSubmit}>
+                    <Form.Group as={Row}>
+                    <Form.Label column sm={2}>
+                            Name
+                        </Form.Label>
+                        <Col sm={10} className="form-input">
+                            <Form.Control type="Text" placeholder={name} value={name} required disabled/>
+                        </Col>
+                    </Form.Group>
                     <Form.Group as={Row} >
+                        
                         <Form.Label column sm={2}>
                             Leave Type
                         </Form.Label>

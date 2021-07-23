@@ -28,6 +28,7 @@ function LeaveApplicationEmpTable(props) {
   const [leaveApplicationEmpData, setleaveApplicationEmpData] = useState([])
   const [loading, setloading] = useState(true)
   const [columnDefs, setcolumnDefs] = useState([
+    
     {
       headerName: "Leave type",
       field: "Leavetype",
