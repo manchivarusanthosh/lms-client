@@ -21,6 +21,7 @@ import {
   faDollarSign,
   faTasks
 } from "@fortawesome/free-solid-svg-icons";
+import LeaveApplicationHR from "./LeaveApplicationHR";
 
 // function RoleAdminF() {
 //   return <Role />;
@@ -75,7 +76,7 @@ function DashboardAdmin(props) {
                   </Link> 
                 </li>
                 <li>
-                  <Link to="/hr/leaveapplication">
+                  <Link to="/hr/leave-application-hr">
                     <FontAwesomeIcon icon={faChair} className="sidebar-icon" /> 
                     Leave Application 
                   </Link> 
@@ -104,6 +105,7 @@ function DashboardAdmin(props) {
               <div id="sidebar-top-content" />
                 <Switch>
                   <Route path="/hr/home" exact component={HRHome}/>
+                  <Route path="/hr/leave-application-hr" exact component={LeaveApplicationHR}/>
                 </Switch>
             </div>
           </div> 
