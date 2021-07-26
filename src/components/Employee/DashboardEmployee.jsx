@@ -12,7 +12,7 @@ import NavBar from "../NavBar.jsx";
 import Employeehome from "./Employeehome";
 import EmpProfile from "./EmpProfile";
 import LeaveApplicationEmp from "./LeaveApplicationEmp";
-
+import axios from "axios";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -22,6 +22,7 @@ import {
   faPenFancy,
   faListAlt,
 } from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from "react";
 
 // function RoleAdminF() {
 //   return <Role />;
@@ -58,11 +59,33 @@ function DashboardAdmin(props) {
     console.log("End:",checked)
   }
 
+  useEffect(()=>{
+    getLeaveBalance()
+  })
+
+
+
+  // function to load leave Balance when dashboard is loaded
+  function getLeaveBalance(){
+    axios.get("http://localhost:9002/leave-application-emp/"+ props.data["_id"]+ "/leavebalance",{
+      headers:{
+        authorization:localStorage.getItem("token") || ""
+      }
+    })
+    .then(res=>{
+      console.log("Leave balance")
+      console.log(res)
+      localStorage.setItem("leaveBalance",res.data.leaveBalance)
+    })
+    .catch(err =>{
+      console.log(err)
+    })
+  }
+
   
     return (
      
       <Router>
-
         <div id="outer-main-div">
           <div id="outer-nav">
             <NavBar loginInfo={props.data} checked={checked} handleChange={handleChange} onlogout={props.onlogout}/>

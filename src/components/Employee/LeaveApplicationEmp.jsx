@@ -21,6 +21,11 @@ function LeaveApplicationEmp(props) {
     event.preventDefault();
     // console.log("id", event.target[0].value, event.target[1].value);
     // this.setState({ table: true });
+
+    var leaveBalance = localStorage.getItem("leaveBalance")
+    if(leaveBalance==0){
+      return window.alert("Your Leave Balance is zero, contact HR")
+    }
     setTable(true)
 
     let body = {

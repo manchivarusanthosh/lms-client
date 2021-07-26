@@ -1,0 +1,52 @@
+.home{
+    display: flex;
+    flex-direction:column ;
+
+}
+
+@media (min-width:768px) {
+    .home{
+        flex-direction: row;
+    }
+}
+
+.home-card
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px;
+    border:rgba(0, 0, 0, 0.75)  1px;
+    width:90%;
+    margin-top:10px;
+    margin-left:10px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px -11px rgba(0, 0, 0, 0.75);
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.75); */
+
+    text-align: center;
+    margin-right: 5px;
+   
+}
+
+.date{
+    font-size: small;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+.time{
+    font-size: small;
+    font-weight: bold;
+}
+@media (min-width:768px) {
+    .date-and-time-card{
+        width:40%;
+    }
+    .date{
+        font-size:large ;
+        
+    }
+    .time{
+        font-size: large;
+    }
+}

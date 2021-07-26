@@ -156,6 +156,8 @@ function LeaveApplicationEmpTable(props) {
   };
 
 
+  
+
   const onLeaveApplicationEmpDelete = (e1, e2) => {
     console.log(e1, e2);
     if (window.confirm("Are you sure to delete this record? ") == true) {
@@ -176,6 +178,8 @@ function LeaveApplicationEmpTable(props) {
         });
     }
   };
+
+
 
   // componentDidMount() {
   //   this.loadLeaveApplicationEmpData();
@@ -226,12 +230,17 @@ function LeaveApplicationEmpTable(props) {
     }
   };
 
+  
+
 
   return (
     <div id="table-outer-div-scroll">
+      <div className="leave-balance">
+        {/* leavebalance value has been set in localstorage (DashboardEmp) */}
+        <p>Leave Balance:{localStorage.getItem("leaveBalance")}</p>
+      </div>
       <div className="heading-and-button">
         <h2 id="role-title">Leave Application</h2>
-
         <Button
           variant="primary"
           id="add-button"

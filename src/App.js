@@ -113,7 +113,7 @@ function App () {
             Name: localStorage.getItem("Name") || ""
           })
           setIsLogin(localStorage.getItem("isLogin") == "true")
-          history.push("/admin/role");   
+          history.push("/admin/home");   
         }
         if (decodedData.Account == 2) {
           
