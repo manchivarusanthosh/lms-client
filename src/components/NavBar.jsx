@@ -3,6 +3,9 @@ import "./NavBar.css";
 import { Navbar, Nav } from "react-bootstrap";
 import pcs_logo from "./Images/pcs_logo.png"
 import Switch from "react-switch";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
+
 
 
 
@@ -41,7 +44,14 @@ function NavBar(props) {
               <p onClick={props.onClick} className="navbar-right-content">
                         {props.loginInfo["Name"]}
                 </p>
-              <a href="/login" onClick={props.onlogout} style={{"cursor":"pointer"}} className="navbar-right-content">Log Out</a>
+                <div>
+                <a href="/login" onClick={props.onlogout} style={{"cursor":"pointer"}} className="navbar-right-content">
+                  Log Out
+                  <span><FontAwesomeIcon icon={faPowerOff} id="plus-icon" /></span>
+                  </a>
+                
+                </div>
+              
             </Nav>
           </Navbar.Collapse>
         

@@ -2,7 +2,7 @@ import React from "react"
 
 function EmpProfile(props) {
     return(
-        <div>
+        <div className="d-flex justify-content-center align-center">
             <h1> Employee Profile</h1>
         </div>
     )

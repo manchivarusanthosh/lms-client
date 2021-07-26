@@ -11,6 +11,8 @@
 }
 .form-container
 {
+    display: flex;
+    flex-direction: column;
     padding: 15px;
 }
 
@@ -18,3 +20,18 @@
 {
     padding-bottom: 5px;
 }
+
+#role-form-title{
+    background-color:
+    #5569dc50 ;
+    padding: 10px;
+    color: #444;
+    width: 200px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.form-container #role-form-title{
+    align-self: center;
+}
+

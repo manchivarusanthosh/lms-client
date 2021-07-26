@@ -230,7 +230,7 @@ function LeaveApplicationEmpTable(props) {
     }
   };
 
-  
+  console.log(localStorage.getItem("leaveBalance"))
 
 
   return (

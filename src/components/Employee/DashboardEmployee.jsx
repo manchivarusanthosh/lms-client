@@ -74,7 +74,7 @@ function DashboardAdmin(props) {
     })
     .then(res=>{
       console.log("Leave balance")
-      console.log(res)
+      console.log("res",res)
       localStorage.setItem("leaveBalance",res.data.leaveBalance)
     })
     .catch(err =>{

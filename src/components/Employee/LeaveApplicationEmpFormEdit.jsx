@@ -35,7 +35,7 @@ function LeaveApplicationEmpForm(props) {
     
         return (
             <div>
-                <h2 id="role-form-title">Edit LeaveApplicationEmp Details</h2>
+                <h2 id="role-form-title">Edit Leave</h2>
                 <div id="role-form-outer-div">
                     <Form
                         id="form"

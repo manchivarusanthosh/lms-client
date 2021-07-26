@@ -15,7 +15,7 @@ function LeaveApplicationEmpForm(props) {
     return (
         <div>
             <div className="form-container">
-                <h2 id="role-form-title">Add LeaveApplicationEmp Details</h2>
+                <h2 id="role-form-title">Apply Leave</h2>
                 <div id="role-form-outer-div">
                     <Form id="form" onSubmit={props.onLeaveApplicationEmpSubmit}>
                         <div className='label-option-container'>
