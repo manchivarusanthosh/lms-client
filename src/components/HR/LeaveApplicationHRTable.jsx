@@ -237,7 +237,10 @@ function LeaveApplicationHRTable(props) {
   return (
     <div id="table-outer-div-scroll">
       <div className="heading-and-button">
-        <h2 id="role-title">Leave Application</h2>
+      <div>
+        <span id="role-title">Leave Requests</span><br/>
+        {/* <span id="role-title">Requests</span> */}
+        </div>
 
         <Button
           variant="primary"
@@ -245,7 +248,7 @@ function LeaveApplicationHRTable(props) {
           onClick={props.onAddLeaveApplicationEmp}
         >
           <FontAwesomeIcon icon={faPlus} id="plus-icon" />
-          Add
+        
         </Button>
       </div>
       <div id="clear-both" />
