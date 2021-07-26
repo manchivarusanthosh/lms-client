@@ -19,7 +19,7 @@ function NavBar(props) {
                 <Switch 
                     checked={props.checked}
                     onChange={props.handleChange}
-                    onColor="#404e67"
+                    onColor="#5569dc"
                     onHandleColor="#ffffff"
                     handleDiameter={10}
                     uncheckedIcon={false}

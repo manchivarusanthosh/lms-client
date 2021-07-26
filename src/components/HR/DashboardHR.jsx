@@ -61,10 +61,10 @@ function DashboardAdmin(props) {
          <div id="main-non-nav">
             <div id="sidebar">
               <div id="sidebar-top-content" />
-              <div id="main-title">
+              {/* <div id="main-title">
                 <FontAwesomeIcon icon={faUsersCog} className="sidebar-icon" />
                 HR
-              </div>
+              </div> */}
               <ul className="navbar-ul">
                 <li>
                   <Link to="/hr/home">
@@ -75,7 +75,7 @@ function DashboardAdmin(props) {
                 <li>
                   <Link to="/hr/leave-application-hr">
                     <FontAwesomeIcon icon={faPenFancy} className="sidebar-icon" /> 
-                    Leave Application 
+                    Leaves
                   </Link> 
                 </li>
                 <li>

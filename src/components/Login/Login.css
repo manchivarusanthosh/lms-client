@@ -3,11 +3,6 @@
 body,input {
     font-family: "poppins",sans-serif;
   }
-  
-  
-
-
-
 
  .container{
    position: relative;
@@ -25,6 +20,13 @@ body,input {
    left: 030%;
  }
 
+ form #logo-img{
+   margin: auto;
+   width: 250px;
+   align-self: center;
+   margin-top: 20px;
+   margin-bottom: 20px;
+ }
  .signin-signup{
    position: absolute;
    top: 50%;
@@ -108,7 +110,7 @@ border: none;
 outline: none;
 border-radius: 49px;
 cursor: pointer;
-background-color: #5995fd;
+background-color: #5261ac;
 color: #fff;
 text-transform: uppercase;
 font-weight: 600;
@@ -117,7 +119,7 @@ transition: .5s;
 }
 
 .button:hover{
-  background-color: #4d84e2;
+  background-color: #77be44;
 }
 
 .panels-container{
@@ -136,11 +138,11 @@ transition: .5s;
   width: 2000px;
   height: 2000px;
   border-radius: 50%;
-  background-image: linear-gradient(-45deg,#4481eb 0%,#04befe 100%);
+  background-image: linear-gradient(-45deg,#5569dc 0%,#5569dc 100%);
   top: -10%;
-  right: 48%;
+  right: 40%;
   transform: translateY(-50%);
-  transition: 1.8s ease-in-out;
+  transition: 3s ease-in;
   z-index: 6;
 }
 
@@ -235,6 +237,47 @@ transition: .5s;
   pointer-events: all;
 }
 
+@media (max-width:570px){
+  .signin-signup form{
+    padding: 0 1.5rem;
+  }
+
+  .forms-container{
+    top: 5%;
+    left: 25%;
+  }
+
+  .image{
+    display: none;
+  }
+
+  .panel .content{
+    padding: 0.5rem 1rem;
+  }
+
+  .container{
+    padding: 1.5rem;
+  }
+
+  .container:before{
+    bottom: 72%;
+    left: 50%;
+  }
+
+  .container.sign-up-mode::before{
+    bottom: 28%;
+    left:50%
+  }
+}
+
+@media (min-width:570px) and (max-width:870px){
+  .signin-signup,
+  .container.sign-up-mode .signin-signup{
+    left: 0%;
+  }
+
+}
+
 @media (max-width:870px){
   .container{
     min-height: 800px;
@@ -243,7 +286,7 @@ transition: .5s;
 
   .signin-signup,
   .container.sign-up-mode .signin-signup{
-    left: 50%;
+    left: 20%;
   }
 
   .panels-container{
@@ -319,37 +362,4 @@ transition: .5s;
     transform: translate(-50%,0);
   }
 
-}
-
-@media (max-width:570px){
-  .signin-signup form{
-    padding: 0 1.5rem;
-  }
-
-  .forms-container{
-    top: 5%;
-    left: 0%;
-  }
-
-  .image{
-    display: none;
-  }
-
-  .panel .content{
-    padding: 0.5rem 1rem;
-  }
-
-  .container{
-    padding: 1.5rem;
-  }
-
-  .container:before{
-    bottom: 72%;
-    left: 50%;
-  }
-
-  .container.sign-up-mode::before{
-    bottom: 28%;
-    left:50%
-  }
 }

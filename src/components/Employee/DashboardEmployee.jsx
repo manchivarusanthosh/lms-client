@@ -72,11 +72,11 @@ function DashboardAdmin(props) {
             <div id="sidebar">
               <div id="sidebar-top-content" />
               <div id="main-title">
-                <FontAwesomeIcon icon={faUsersCog} className="sidebar-icon" />
-                Employee
+                {/* <FontAwesomeIcon icon={faUsersCog} className="sidebar-icon" /> */}
+                
               </div>
               <ul className="navbar-ul">
-                <li>
+                <li className="active">
                   <Link to= { "/employee/" + props.data["_id"] + "/home"}>
                     <FontAwesomeIcon icon={faHome} className="sidebar-icon" /> 
                     Home 
@@ -85,7 +85,7 @@ function DashboardAdmin(props) {
                 <li>
                   <Link to={ "/employee/"+ props.data["_id"]+ "/leave-application-emp"}>
                     <FontAwesomeIcon icon={faPenFancy} className="sidebar-icon" /> 
-                    LeaveApplication 
+                    Leave 
                   </Link> 
                 </li>
                 <li>
