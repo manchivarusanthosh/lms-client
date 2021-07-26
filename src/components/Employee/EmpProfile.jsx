@@ -39,7 +39,7 @@ function EmpProfile(props) {
                 EmpPassword : res.data.Password,
                 EmpGender : res.data.Gender,
                 EmpDOB:res.data.DOB.slice(0,10),
-                EmpContact : res.data.ContactN
+                EmpContact : res.data.ContactNo
             })
             
         })
