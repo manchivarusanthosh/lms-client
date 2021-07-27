@@ -11,7 +11,7 @@ import NavBar from "../NavBar.jsx";
 //components hr
 import HRHome from "./HRHome";
 import Holidays from "../Holidays/Holidays";
-import HRProfile from './HRProfile'
+
 
 
 
@@ -25,6 +25,7 @@ import {
 
 
 import LeaveApplicationHR from "./LeaveApplicationHR";
+import Profile from "../Profile/Profile";
 
 function DashboardAdmin(props) {
 //   state = {
@@ -114,7 +115,7 @@ function DashboardAdmin(props) {
 
                   <Route exact path="/employee/:id/profile" 
                   render={()=>
-                    <HRProfile data={props.data} back={false}/>
+                    <Profile data={props.data} back={false}/>
                   }/>
                 </Switch>
             </div>

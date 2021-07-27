@@ -1,18 +1,13 @@
 import React, { Component } from "react";
-
+import "./Profile.css";
 import { Form, Button, Col, Row } from "react-bootstrap";
 import axios from "axios";
-import './HRProfile.css'
+import './Profile.css'
 import { useEffect,useState } from "react";
 
 
-function HRProfile(props) {
-    // state = {
-    // };
-    // componentWillMount() {
-
-    // }
-
+function Profile(props) {
+    
     const [profileData,setProfileData] = useState({
         EmpName:"",
         EmpEmail:"",
@@ -124,4 +119,4 @@ function HRProfile(props) {
     );
 
 }
-export default HRProfile;
+export default Profile;

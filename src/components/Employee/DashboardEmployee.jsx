@@ -10,7 +10,8 @@ import NavBar from "../NavBar.jsx";
 
 //components
 import Employeehome from "./Employeehome";
-import EmpProfile from "./EmpProfile";
+
+
 import LeaveApplicationEmp from "./LeaveApplicationEmp";
 import axios from "axios";
 import Holidays from "../Holidays/Holidays";
@@ -24,6 +25,7 @@ import {
   faUmbrellaBeach,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
+import Profile from "../Profile/Profile";
 
 // function RoleAdminF() {
 //   return <Role />;
@@ -151,7 +153,7 @@ function DashboardAdmin(props) {
                 {/* Profile Route */}
                 <Route exact path="/employee/:id/profile" 
                   render={()=>
-                    <EmpProfile data={props.data} back={false}/>
+                    <Profile data={props.data} back={false}/>
                   }/>
 
                 </Switch>
