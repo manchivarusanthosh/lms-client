@@ -13,6 +13,7 @@ import Employeehome from "./Employeehome";
 import EmpProfile from "./EmpProfile";
 import LeaveApplicationEmp from "./LeaveApplicationEmp";
 import axios from "axios";
+import Holidays from "../Holidays/Holidays";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -20,7 +21,7 @@ import {
   faUsers,
   faHome,
   faPenFancy,
-  faListAlt,
+  faUmbrellaBeach,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 
@@ -112,6 +113,12 @@ function DashboardAdmin(props) {
                   </Link> 
                 </li>
                 <li>
+                  <Link to={ "/employee/"+ props.data["_id"]+ "/holidays"}>
+                    <FontAwesomeIcon icon={faUmbrellaBeach} className="sidebar-icon" /> 
+                    Holidays  
+                  </Link> 
+                </li>
+                <li>
                   <Link to={ "/employee/"+ props.data["_id"] +"/profile"}>
                     <FontAwesomeIcon
                       icon={faUsers}
@@ -137,6 +144,9 @@ function DashboardAdmin(props) {
                   <Route exact path="/employee/:id/leave-application-emp"
                     render={() => <LeaveApplicationEmp data={props.data} />}
                   />
+
+                {/* Holidays Route */}
+                <Route path="/employee/:id/holidays" component={Holidays}/>
 
                 {/* Profile Route */}
                 <Route exact path="/employee/:id/profile" 

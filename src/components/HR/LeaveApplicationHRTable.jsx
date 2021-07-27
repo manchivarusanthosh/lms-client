@@ -83,7 +83,7 @@ function LeaveApplicationHRTable(props) {
   var [rowData, setrowData] = useState([])
   const [defaultColDef, setdefaultColDef] = useState({
     resizable: true,
-    width: 235,
+    width: 200,
     filter: "agTextColumnFilter"
     // filter: true ,
   })

@@ -10,15 +10,17 @@ import NavBar from "../NavBar.jsx";
 
 //components hr
 import HRHome from "./HRHome";
+import Holidays from "../Holidays/Holidays";
+import HRProfile from './HRProfile'
+
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faUsersCog,
   faUsers,
   faHome,
   faPenFancy,
-  faListAlt,
+  faUmbrellaBeach,
 } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -81,14 +83,16 @@ function DashboardAdmin(props) {
                 <li>
                   <Link to="/hr/holidays">
                     <FontAwesomeIcon
-                      icon={faListAlt}
+                      icon={faUmbrellaBeach}
                       className="sidebar-icon"
                     /> 
                     Holidays 
                   </Link> 
                 </li>
                 <li>
-                  <Link to="/hr/profile">
+
+              {/* HR is treated as EMPLOYEE so the ROUTE will be employee/:id/profile */}
+                  <Link to={ "/employee/"+ props.data["_id"] +"/profile"}>
                     <FontAwesomeIcon
                       icon={faUsers}
                       className="sidebar-icon"
@@ -102,7 +106,16 @@ function DashboardAdmin(props) {
               <div id="sidebar-top-content" />
                 <Switch>
                   <Route path="/hr/home" component={HRHome}/>
+
                   <Route path="/hr/leave-application-hr" exact component={LeaveApplicationHR}/>
+
+                  <Route path="/hr/holidays" component={Holidays}/>
+
+
+                  <Route exact path="/employee/:id/profile" 
+                  render={()=>
+                    <HRProfile data={props.data} back={false}/>
+                  }/>
                 </Switch>
             </div>
           </div> 
