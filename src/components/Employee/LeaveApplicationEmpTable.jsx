@@ -83,8 +83,6 @@ function LeaveApplicationEmpTable(props) {
     filter: "agTextColumnFilter"
     // filter: true ,
   })
-
-
   // const [getRowHeight, setgetRowHeight] = useState(
   //   function (params) {
   //     return 35;
@@ -98,10 +96,13 @@ function LeaveApplicationEmpTable(props) {
 
   useEffect(() => {
     loadLeaveApplicationEmpData()
+    return ()=> {
+      setloading(false)
+    }
   }, [])
 
-  const loadLeaveApplicationEmpData = () => {
-    axios
+  const loadLeaveApplicationEmpData =async () => {
+  await  axios
       .get(
         "http://localhost:9002/leave-application-emp/" + props.data["_id"],
         {
@@ -145,9 +146,9 @@ function LeaveApplicationEmpTable(props) {
 
 
         //setrowData(rowDataT)
-        console.log("rowDataT values", rowDataT)
+        // console.log("rowDataT values", rowDataT)
         setrowData(rowDataT)
-        console.log("rowData after setrowData", rowData)
+        // console.log("rowData after setrowData", rowData)
 
       })
       .catch(error => {
@@ -158,10 +159,10 @@ function LeaveApplicationEmpTable(props) {
 
   
 
-  const onLeaveApplicationEmpDelete = (e1, e2) => {
-    console.log(e1, e2);
+  const onLeaveApplicationEmpDelete =async (e1, e2) => {
+    // console.log(e1, e2);
     if (window.confirm("Are you sure to delete this record? ") == true) {
-      axios
+      await axios
         .delete(
           "http://localhost:9002/leave-application-emp/" + e1 + "/" + e2, {
           headers: {
@@ -187,9 +188,9 @@ function LeaveApplicationEmpTable(props) {
 
 
   function renderButton(params) {
-    console.log("here is the params", params);
-    console.log("here is the props data", props.data["_id"])
-    console.log("here is the params.data.data", params.data.data["_id"])
+    // console.log("here is the params", params);
+    // console.log("here is the props data", props.data["_id"])
+    // console.log("here is the params.data.data", params.data.data["_id"])
     return (
       <FontAwesomeIcon
         icon={faTrash}
@@ -200,7 +201,7 @@ function LeaveApplicationEmpTable(props) {
     );
   }
   function renderEditButton(params) {
-    console.log(params);
+    // console.log(params);
     return (
       <FontAwesomeIcon
         icon={faEdit}
@@ -230,7 +231,7 @@ function LeaveApplicationEmpTable(props) {
     }
   };
 
-  console.log(localStorage.getItem("leaveBalance"))
+  // console.log(localStorage.getItem("leaveBalance"))
 
 
   return (

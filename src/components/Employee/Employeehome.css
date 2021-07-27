@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     padding: 20px;
     border:rgba(0, 0, 0, 0.75)  1px;
     width:90%;
@@ -38,6 +39,37 @@
     font-size: small;
     font-weight: bold;
 }
+
+.leave-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border:rgba(0, 0, 0, 0.75)  1px;
+    width:90%;
+    margin-top:10px;
+    margin-left:10px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px -11px rgba(0, 0, 0, 0.75);
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.75); */
+
+}
+
+.leave-balance{
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.balance-count{
+    font-size: xx-large;
+    color: #77be45;
+    margin-left: 10px;
+    
+}
+
 @media (min-width:768px) {
     .date-and-time-card{
         width:40%;
