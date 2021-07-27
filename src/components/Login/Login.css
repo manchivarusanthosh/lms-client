@@ -363,3 +363,9 @@ transition: .5s;
   }
 
 }
+
+/* error message for invalid username and password */
+.alert{
+  font-size: 13px;
+  color:red
+}

@@ -89,8 +89,10 @@ function App () {
           decodedData.Account == 3
         )
       ) {
+        console.log("Login failed")
         setPass(false)
         setLoading(false)
+        
       } else {
         if (decodedData.Account == 1) {
           

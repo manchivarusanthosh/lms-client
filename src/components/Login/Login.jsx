@@ -16,6 +16,9 @@ function Login(props) {
   // const {loading,pass} = props 
 
   // console.log(loading)
+
+  console.log("Login ",props)
+  console.log("login props pass",props.pass)
   return (
     <>
       <div className="container">
@@ -43,6 +46,12 @@ function Login(props) {
                   required="required"
                 />
               </div>
+              {!props.pass ? (
+                // <p className="alert">Invalid UserName or Password</p>
+                window.alert("Invalid Credentials")
+              ) : (
+                ""
+              )}
               <a href="#">Forgot password?</a>
               <input className="login-form-input"
                 className="button"
@@ -51,13 +60,7 @@ function Login(props) {
                 id="signInBtn"
               />
 
-
-
-              {/* {!this.props.pass ? (
-                <p className="alert">Invalid UserName or Password</p>
-              ) : (
-                ""
-              )} */}
+             
             </form>
             <form className="sign-up-form" action="" method="" onSubmit={props.onSubmit} >
               <div id="logo-div">
