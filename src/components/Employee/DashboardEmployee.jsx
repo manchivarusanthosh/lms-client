@@ -33,30 +33,30 @@ function DashboardAdmin(props) {
 //     redirect: true,
 //     checked: true 
 //   };
-    console.log("Value of props",props)
-    console.log("value of data in props",props.data)
-    console.log("value of id in data in props _id",props.data["_id"])
+    // console.log("Value of props",props)
+    // console.log("value of data in props",props.data)
+    // console.log("value of id in data in props _id",props.data["_id"])
 
-    console.log("value of id in data in props",props.data["id"])
-
+    // console.log("value of id in data in props",props.data["id"])
 
     const [redirect, setRedirect] = useState(true)
     const [checked, setChecked] = useState(true)
-    console.log("starting value",checked)
+
+    // console.log("starting value",checked)
     const handleChange=(checked)=> {
-    console.log("switch");
-    console.log("Start:",checked)
+    // console.log("switch");
+    // console.log("Start:",checked)
     if(checked===true){
-        console.log("if statement") 
+        // console.log("if statement") 
       document.getElementById("sidebar").setAttribute("class", "display-block");
     }
     else{
-        console.log("in else:",checked)
+        // console.log("in else:",checked)
         document.getElementById("sidebar").setAttribute("class", "display-none");
     }   
-    console.log("after else:",checked)
+    // console.log("after else:",checked)
     setChecked(checked)
-    console.log("End:",checked)
+    // console.log("End:",checked)
   }
 
   useEffect(()=>{
@@ -67,18 +67,18 @@ function DashboardAdmin(props) {
 
   // function to load leave Balance when dashboard is loaded
   function getLeaveBalance(){
-    axios.get("http://localhost:9002/leave-application-emp/"+ props.data["_id"]+ "/leavebalance",{
+    axios.get("http://localhost:9002/leave-application-emp/"+ props.data["_id"]+ "/leave-balance",{
       headers:{
         authorization:localStorage.getItem("token") || ""
       }
     })
     .then(res=>{
-      console.log("Leave balance")
-      console.log("res",res)
+      // console.log("Leave balance")
+      // console.log("res",res.data.leaveBalance)
       localStorage.setItem("leaveBalance",res.data.leaveBalance)
     })
     .catch(err =>{
-      console.log(err)
+      console.log("err",err)
     })
   }
 
@@ -130,7 +130,7 @@ function DashboardAdmin(props) {
                   {/* Home Route */}
                   <Route exact path="/employee/:id/home" 
                   render={()=>
-                    <Employeehome data={props.data} back={false}/>
+                    <Employeehome data={props.data} leaveBalance={localStorage.getItem("leaveBalance")} back={false}/>
                   }/>
 
                 {/* Leave Application Route */}

@@ -35,7 +35,7 @@ function LeaveApplicationEmpForm(props) {
                                 </Form.Label>
                                 <Col sm={10} className="form-input">
                                     <Form.Control as="select" required>
-                                        <option value="" disabled selected>
+                                        <option value="DEAFAULT" disabled>
                                             Select your option
                                         </option>
                                         <option value="Sick Leave">Sick Leave</option>

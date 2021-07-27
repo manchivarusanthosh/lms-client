@@ -52,7 +52,7 @@ function App () {
   };
 
   const handleLogout = event => {
-    console.log("logout");
+    // console.log("logout");
     localStorage.clear();
     setData({
       _id: localStorage.getItem("_id") || "",
@@ -67,15 +67,15 @@ function App () {
       userMail : userMail,
       userPass : userPass
     };
-    console.log(bodyLogin)
+    // console.log(typeof(bodyLogin))
 
     axios.post("http://localhost:9002/login",bodyLogin)
     .then( res => {
       // console.log(decodedData.Account);
       var decodedData = jwt.decode(res.data);
-      console.log("Here is the decoded data")
-      console.log(decodedData.Account)
-      console.log(decodedData["FirstName"])
+      // console.log("Here is the decoded data")
+      // console.log(decodedData.Account)
+      // console.log(decodedData["FirstName"])
       localStorage.setItem("token", res.data);
 
       if (
@@ -151,7 +151,7 @@ function App () {
             "Name",
             decodedData["FirstName"] + " " + decodedData["LastName"]
           );
-          console.log("decoded id",decodedData["_id"])
+          // console.log("decoded id",decodedData["_id"])
          
           
           setData({
