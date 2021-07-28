@@ -107,7 +107,7 @@ function LeaveApplicationHRTable(props) {
   const loadLeaveApplicationHRData = () => {
     axios
       .get(
-        "http://localhost:9002/leave-application-hr/",
+        "https://pcs-lms.herokuapp.com/leave-application-hr/",
         {
           headers: {
             authorization: localStorage.getItem("token") || ""

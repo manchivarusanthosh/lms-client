@@ -21,7 +21,7 @@ function LeaveApplicationEmp(props) {
   const updateLeaveBalance = (leaveBalance) => {
     // console.log("updated balance called",props.data["_id"])
     let updatedLeaveBalance = {leaveBalance :leaveBalance}
-    let url = "http://localhost:9002/leave-application-emp/"+props.data["_id"]+"/leave-balance/"
+    let url = "https://pcs-lms.herokuapp.com/leave-application-emp/"+props.data["_id"]+"/leave-balance/"
     axios.put(url,updatedLeaveBalance,{
       headers: {
         authorization: localStorage.getItem("token") || ""
@@ -56,7 +56,7 @@ function LeaveApplicationEmp(props) {
     };
     console.log("body name:",body.Name)
     axios
-      .post("http://localhost:9002/leave-application-emp/" + props.data["_id"] , body, {
+      .post("https://pcs-lms.herokuapp.com/leave-application-emp/" + props.data["_id"] , body, {
         headers: {
           authorization: localStorage.getItem("token") || ""
         }
@@ -115,7 +115,7 @@ function LeaveApplicationEmp(props) {
     console.log("update", body);
     axios
       .put(
-        "http://localhost:9002/leave-application-emp/" + info["_id"],
+        "https://pcs-lms.herokuapp.com/leave-application-emp/" + info["_id"],
         body, {
         headers: {
           authorization: localStorage.getItem("token") || ""

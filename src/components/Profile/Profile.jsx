@@ -22,7 +22,7 @@ function Profile(props) {
     },[])
     
     function loadProfileDetails(){
-        axios.get("http://localhost:9002/employee/"+props.data["_id"]+"/profile")
+        axios.get("https://pcs-lms.herokuapp.com/employee/"+props.data["_id"]+"/profile")
         .then(res=>{
             console.log("here is the employee record for profile")
             console.log(res)

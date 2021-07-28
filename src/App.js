@@ -69,7 +69,7 @@ function App () {
     };
     // console.log(typeof(bodyLogin))
 
-    axios.post("http://localhost:9002/login",bodyLogin)
+    axios.post("https://pcs-lms.herokuapp.com/login",bodyLogin)
     .then( res => {
       // console.log(decodedData.Account);
       var decodedData = jwt.decode(res.data);

@@ -69,7 +69,7 @@ function DashboardAdmin(props) {
 
   // function to load leave Balance when dashboard is loaded
   function getLeaveBalance(){
-    axios.get("http://localhost:9002/leave-application-emp/"+ props.data["_id"]+ "/leave-balance",{
+    axios.get("https://pcs-lms.herokuapp.com/leave-application-emp/"+ props.data["_id"]+ "/leave-balance",{
       headers:{
         authorization:localStorage.getItem("token") || ""
       }

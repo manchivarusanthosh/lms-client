@@ -104,7 +104,7 @@ function LeaveApplicationEmpTable(props) {
   const loadLeaveApplicationEmpData =async () => {
   await  axios
       .get(
-        "http://localhost:9002/leave-application-emp/" + props.data["_id"],
+        "https://pcs-lms.herokuapp.com/leave-application-emp/" + props.data["_id"],
         {
           headers: {
             authorization: localStorage.getItem("token") || ""
@@ -164,7 +164,7 @@ function LeaveApplicationEmpTable(props) {
     if (window.confirm("Are you sure to delete this record? ") == true) {
       await axios
         .delete(
-          "http://localhost:9002/leave-application-emp/" + e1 + "/" + e2, {
+          "https://pcs-lms.herokuapp.com/leave-application-emp/" + e1 + "/" + e2, {
           headers: {
             authorization: localStorage.getItem("token") || ""
           }

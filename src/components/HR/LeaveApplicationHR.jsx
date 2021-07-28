@@ -49,7 +49,7 @@ function LeaveApplicationHR(props) {
         console.log("employee id:",info["_id"])
          axios
             .put(
-                "http://localhost:9002/leave-application-hr/" + info["_id"],
+                "https://pcs-lms.herokuapp.com/leave-application-hr/" + info["_id"],
                 body, {
                 headers: {
                     authorization: localStorage.getItem("token") || ""

@@ -131,17 +131,19 @@ function DashboardAdmin(props) {
               {/* HR Leave Application */}
               <Route path="/hr/leave-application-hr" exact component={LeaveApplicationHR} />
 
-              
+              {/* Holidays Route */}
               <Route path="/hr/holidays" component={Holidays} />
 
-
+              {/* Profile Route */}
               <Route exact path="/employee/:id/profile"
                 render={() =>
                   <Profile data={props.data} back={false} />
                 } />
+
+                {/* Employees Route */}
               <Route Path="hr/all-emp-details" exact component={EmployeesListTable} />
 
-              <Route exact path="/hr" component={HRHome}/>
+              
             </Switch>
           </div>
         </div>

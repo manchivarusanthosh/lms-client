@@ -14,6 +14,7 @@ import "ag-grid-community/dist/styles/ag-theme-balham.css";
 
 import { useState } from "react";
 import { useEffect } from "react";
+import EmpLeaveHistory from "./EmpLeaveHistory";
 
 
 const override = css`
@@ -23,9 +24,11 @@ const override = css`
   border-color: red;
 `;
 
-function EmployeesListTable(props) {
+function EmployeesListTable() {
 
-    const [employeeList, setemployeeList] = useState([])
+    
+    // const [employeeList, setemployeeList] = useState([])
+    const [showEmpDetails, setshowEmpDetails] = useState(true)
     const [loading, setloading] = useState(true)
     const [columnDefs, setcolumnDefs] = useState([
         {
@@ -69,6 +72,7 @@ function EmployeesListTable(props) {
     ])
 
     var [rowData, setrowData] = useState([])
+    
     useEffect(() => {
         loadEmployeeListTable()
         return () => {
@@ -87,21 +91,24 @@ function EmployeesListTable(props) {
     })
 
     function renderLeaveHistoryButton(params) {
-        // console.log(params);
-
-        //onClick={() => onEdit(params.data.data)}
         return (
 
             <FontAwesomeIcon
                 icon={faHistory}
-
+                onClick={() => handleEmpLeaveHistory(params.data.data)}
             />
         );
     }
 
+    const handleEmpLeaveHistory = (empObj) =>{
+        
+        setshowEmpDetails(false)
+
+        console.log(empObj)
+    }
 
     const loadEmployeeListTable = () => {
-        axios.get("http://localhost:9002/hr/all-emp-details", {
+        axios.get("https://pcs-lms.herokuapp.com/hr/all-emp-details", {
             headers: {
                 authorization: localStorage.getItem("token") || ""
             }
@@ -117,7 +124,7 @@ function EmployeesListTable(props) {
                 employeeListObj.map((data, index) => {
                     let temp = {
                         data,
-                        "Id": index+1,
+                        "Id": index + 1,
                         "Employee Name": data["FirstName"] + data["LastName"],
                         "Email": data["Email"],
                         "Contact Number": data["ContactNo"],
@@ -138,41 +145,48 @@ function EmployeesListTable(props) {
     }
 
     return (
-        <div id="table-outer-div-scroll">
-            {!loading ? (
-                
-                <div
-                    id="table-div"
-                    className="ag-theme-balham"
-                    style={{ height: "550px", width: "100%" }}
-                >
-                    <h1 className="employees-heading">Employees</h1>
-                    <AgGridReact
-                        columnDefs={columnDefs}
-                        defaultColDef={defaultColDef}
-                        // columnTypes={columnTypes}
-                        rowData={rowData}
-                        pagination={true}
-                        paginationPageSize={10}
-                    // getRowHeight={getRowHeight}
+        <React.Fragment>
+            {
+                showEmpDetails ?
+                    (<div id="table-outer-div-scroll">
+                        {!loading ? (
 
-                    />
+                            <div
+                                id="table-div"
+                                className="ag-theme-balham"
+                                style={{ height: "550px", width: "100%" }}
+                            >
+                                <h1 className="employees-heading">Employees</h1>
+                                <AgGridReact
+                                    columnDefs={columnDefs}
+                                    defaultColDef={defaultColDef}
+                                    // columnTypes={columnTypes}
+                                    rowData={rowData}
+                                    pagination={true}
+                                    paginationPageSize={10}
+                                // getRowHeight={getRowHeight}
 
-                </div>
-            ) : (
-                <div id="loading-bar">
-                    <RingLoader
-                        css={override}
-                        sizeUnit={"px"}
-                        size={50}
-                        color={"#0000ff"}
-                        loading={true}
-                    />
-                </div>
-            )}
+                                />
 
-        </div>
+                            </div>
+                        ) : (
+                            <div id="loading-bar">
+                                <RingLoader
+                                    css={override}
+                                    sizeUnit={"px"}
+                                    size={50}
+                                    color={"#0000ff"}
+                                    loading={true}
+                                />
+                            </div>
+                        )}
+
+                    </div>) : <EmpLeaveHistory />
+
+            }
+        </React.Fragment>
     )
+
 }
 
 export default EmployeesListTable
