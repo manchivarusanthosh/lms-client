@@ -18,6 +18,7 @@ import Holidays from "../Holidays/Holidays";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUsers,
+  faUser,
   faHome,
   faPenFancy,
   faUmbrellaBeach,
@@ -109,7 +110,7 @@ function DashboardAdmin(props) {
                 {/* HR is treated as EMPLOYEE so the ROUTE will be employee/:id/profile */}
                 <Link to={"/employee/" + props.data["_id"] + "/profile"}>
                   <FontAwesomeIcon
-                    icon={faUsers}
+                    icon={faUser}
                     className="sidebar-icon"
                   />
                   Profile

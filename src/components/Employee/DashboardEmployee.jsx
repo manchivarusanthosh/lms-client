@@ -18,8 +18,7 @@ import Holidays from "../Holidays/Holidays";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faUsersCog,
-  faUsers,
+  faUser,
   faHome,
   faPenFancy,
   faUmbrellaBeach,
@@ -123,7 +122,7 @@ function DashboardAdmin(props) {
                 <li>
                   <Link to={ "/employee/"+ props.data["_id"] +"/profile"}>
                     <FontAwesomeIcon
-                      icon={faUsers}
+                      icon={faUser}
                       className="sidebar-icon"
                     /> 
                     Profile 
@@ -135,6 +134,12 @@ function DashboardAdmin(props) {
             <div id="main-area">
               <div id="sidebar-top-content" />
                 <Switch>
+
+                {/* Default Route on login */}
+                <Route exact path="/employee" 
+                  render={()=>
+                    <Employeehome data={props.data} leaveBalance={localStorage.getItem("leaveBalance")} back={false}/>
+                  }/>
 
                   {/* Home Route */}
                   <Route exact path="/employee/:id/home" 
