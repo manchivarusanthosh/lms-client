@@ -26,6 +26,7 @@ import {
 
 import LeaveApplicationHR from "./LeaveApplicationHR";
 import Profile from "../Profile/Profile";
+import EmployeesListTable from "./EmployeesListTable";
 
 function DashboardAdmin(props) {
 //   state = {
@@ -69,18 +70,21 @@ function DashboardAdmin(props) {
                 HR
               </div> */}
               <ul className="navbar-ul">
+
                 <li>
                   <Link to="/hr/home">
                     <FontAwesomeIcon icon={faHome} className="sidebar-icon" /> 
                     Home 
                   </Link> 
                 </li>
+
                 <li>
                   <Link to="/hr/leave-application-hr">
                     <FontAwesomeIcon icon={faPenFancy} className="sidebar-icon" /> 
                     Leaves
                   </Link> 
                 </li>
+
                 <li>
                   <Link to="/hr/holidays">
                     <FontAwesomeIcon
@@ -90,8 +94,18 @@ function DashboardAdmin(props) {
                     Holidays 
                   </Link> 
                 </li>
-                <li>
 
+                <li>
+                  <Link to="/hr/all-emp-details">
+                    <FontAwesomeIcon
+                      icon={faUsers}
+                      className="sidebar-icon"
+                    /> 
+                    Employees 
+                  </Link> 
+                </li>
+
+                <li>
               {/* HR is treated as EMPLOYEE so the ROUTE will be employee/:id/profile */}
                   <Link to={ "/employee/"+ props.data["_id"] +"/profile"}>
                     <FontAwesomeIcon
@@ -101,6 +115,7 @@ function DashboardAdmin(props) {
                     Profile
                   </Link> 
                 </li>
+                
               </ul>
             </div>
             <div id="main-area">
@@ -112,11 +127,13 @@ function DashboardAdmin(props) {
 
                   <Route path="/hr/holidays" component={Holidays}/>
 
+                  
 
                   <Route exact path="/employee/:id/profile" 
                   render={()=>
                     <Profile data={props.data} back={false}/>
                   }/>
+                  <Route Path="hr/all-emp-details" exact component={EmployeesListTable}/>
                 </Switch>
             </div>
           </div> 

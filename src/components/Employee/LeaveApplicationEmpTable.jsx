@@ -188,9 +188,6 @@ function LeaveApplicationEmpTable(props) {
 
 
   function renderButton(params) {
-    // console.log("here is the params", params);
-    // console.log("here is the props data", props.data["_id"])
-    // console.log("here is the params.data.data", params.data.data["_id"])
     return (
       <FontAwesomeIcon
         icon={faTrash}
