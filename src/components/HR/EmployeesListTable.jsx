@@ -140,11 +140,13 @@ function EmployeesListTable(props) {
     return (
         <div id="table-outer-div-scroll">
             {!loading ? (
+                
                 <div
                     id="table-div"
                     className="ag-theme-balham"
                     style={{ height: "550px", width: "100%" }}
                 >
+                    <h1 className="employees-heading">Employees</h1>
                     <AgGridReact
                         columnDefs={columnDefs}
                         defaultColDef={defaultColDef}
